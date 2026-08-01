@@ -40,17 +40,24 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 
 ## Status
 
-🚧 Phase 1 — Core Foundation (Weekend) — 80% complete
+🚧 Phase 1 — Core Foundation (Weekend) — 90% complete
+🚧 Phase 2 — Primitives (Week 1) — 10% complete
 
 - [x] Architecture setup (Turborepo + pnpm)
 - [x] Design tokens (colors, typography, spacing, radius, shadows, motion)
 - [x] Tailwind CSS v4 config with @theme
 - [x] Voice layer (positioning, audience, messaging, voice, concepts, differentiation)
 - [x] Core utilities (cn(), keyboardKeys)
-- [ ] GSAP wrappers
-- [ ] Motion primitives
+- [x] GSAP wrappers (gsapFadeIn, gsapRiseIn, gsapSunIn, gsapStagger)
+- [x] Motion primitives (motionTiming, motionVariants, prefersReducedMotion)
+- [x] Button component (primary, secondary, ghost, outline variants)
+- [x] Playground app (Next.js 16, running on localhost:3001)
 - [ ] Brand assets (logo)
 - [ ] 5 theme presets
+- [ ] Card component
+- [ ] Input component
+- [ ] Text component
+- [ ] Stack/Grid components
 
 ## Progress
 
@@ -64,14 +71,18 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 - **Tailwind CSS v4**: @theme directive with light/dark mode support
 - **Voice layer**: Jon Neylon-style agent-ready brand encoding
 - **Utils package**: cn() class merger, keyboard navigation utilities
+- **Motion package**: GSAP cinematic animations + reduced motion support
+- **React package**: Button primitive with ocre accent signature
+- **Playground**: Next.js 16 dev server running on localhost:3001
 
 ## Next steps
 
-1. Configurer GSAP wrappers (cinematic motion)
-2. Créer Motion primitives (micro-interactions)
-3. Créer brand assets (logo @memo-ui)
-4. Démarrer primitives (Button, Card, Input, etc.)
-5. Setup Storybook for documentation
+1. Créer brand assets (logo @memo-ui)
+2. Créer Card component with lg-card hover
+3. Créer Input component with focus states
+4. Créer Text component (typography wrapper)
+5. Créer Stack/Grid layout components
+6. Setup Storybook for documentation
 
 ## License
 

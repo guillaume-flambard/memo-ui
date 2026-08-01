@@ -1,5 +1,6 @@
 @import '@memo-ui/core/tailwind.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Scan component packages — Tailwind v4 ignores sibling packages otherwise */
+@source "../../../packages/react/src";
+@source "../../../packages/react/dist";
+@source "../../../packages/utils/src";

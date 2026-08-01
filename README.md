@@ -41,7 +41,7 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 ## Status
 
 🚧 Phase 1 — Core Foundation (Weekend) — 90% complete
-🚧 Phase 2 — Primitives (Week 1) — 10% complete
+🚧 Phase 2 — Primitives (Week 1) — 40% complete
 
 - [x] Architecture setup (Turborepo + pnpm)
 - [x] Design tokens (colors, typography, spacing, radius, shadows, motion)
@@ -51,13 +51,17 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 - [x] GSAP wrappers (gsapFadeIn, gsapRiseIn, gsapSunIn, gsapStagger)
 - [x] Motion primitives (motionTiming, motionVariants, prefersReducedMotion)
 - [x] Button component (primary, secondary, ghost, outline variants)
+- [x] Card component (default, outlined, elevated variants)
+- [x] Card subcomponents (Header, Title, Description, Content, Footer)
+- [x] Input component (default, error variants)
+- [x] Text component (size, weight props)
+- [x] Stack component (flexbox layout with wrap)
 - [x] Playground app (Next.js 16, running on localhost:3001)
 - [ ] Brand assets (logo)
 - [ ] 5 theme presets
-- [ ] Card component
-- [ ] Input component
-- [ ] Text component
-- [ ] Stack/Grid components
+- [ ] Grid component
+- [ ] Badge component
+- [ ] Divider component
 
 ## Progress
 
@@ -72,17 +76,17 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 - **Voice layer**: Jon Neylon-style agent-ready brand encoding
 - **Utils package**: cn() class merger, keyboard navigation utilities
 - **Motion package**: GSAP cinematic animations + reduced motion support
-- **React package**: Button primitive with ocre accent signature
-- **Playground**: Next.js 16 dev server running on localhost:3001
+- **React package**: 5 primitives (Button, Card, Input, Text, Stack)
+- **Playground**: Next.js 16 dev server running on localhost:3001 with full demo
 
 ## Next steps
 
 1. Créer brand assets (logo @memo-ui)
-2. Créer Card component with lg-card hover
-3. Créer Input component with focus states
-4. Créer Text component (typography wrapper)
-5. Créer Stack/Grid layout components
-6. Setup Storybook for documentation
+2. Créer Grid component
+3. Créer Badge component
+4. Créer Divider component
+5. Setup Storybook for documentation
+6. 5 theme presets
 
 ## License
 

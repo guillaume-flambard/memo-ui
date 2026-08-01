@@ -6,34 +6,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* Static tokens — don't change between themes */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
-  
-  --spacing-unit: 0.25rem; /* 4px base unit */
-  
-  /* Dynamic tokens — respond to theme changes */
-  --color-paper: #FAFBFC;
-  --color-encre: #0E1320;
-  --color-ink2: #414B5E;
-  --color-ink3: #6B7488;
-  --color-line: #E6E9EF;
-  --color-line2: #D6DBE4;
-  --color-ocre: #F2870D;
-  --color-ocre-deep: #D9760A;
-  --color-ocre2: #FF6A2C;
-  --color-ocre-ink: #B05707;
-  --color-ocre-soft: rgba(242,135,13,.12);
-  --color-on-ocre: #1B1204;
-  --color-surface: #FFFFFF;
-  --color-surface2: #F7F9FB;
+  /* Typography */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Spacing */
+  --spacing-unit: 0.25rem;
+
+  /* Brand colors */
+  --color-paper: #fafbfc;
+  --color-encre: #0e1320;
+  --color-ink2: #414b5e;
+  --color-ink3: #6b7488;
+  --color-line: #e6e9ef;
+  --color-line2: #d6dbe4;
+  --color-ocre: #f2870d;
+  --color-ocre-deep: #d9760a;
+  --color-ocre2: #ff6a2c;
+  --color-ocre-ink: #b05707;
+  --color-ocre-soft: #f2870d1f;
+  --color-on-ocre: #1b1204;
+  --color-surface: #ffffff;
+  --color-surface2: #f7f9fb;
   --color-ok: #16a34a;
-  --color-success: #48BB78;
-  --color-warning: '#ED8936';
-  --color-error: '#E53E3E';
-  --color-info: '#3B82F6';
-  
+  --color-success: #48bb78;
+  --color-warning: #ed8936;
+  --color-error: #e53e3e;
+  --color-info: #3b82f6;
+
+  /* Radius */
   --radius-sm: 0.125rem;
   --radius-base: 0.25rem;
   --radius-md: 0.375rem;
@@ -42,18 +44,21 @@
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
   --radius-full: 9999px;
-  
+
+  /* Shadows */
   --shadow-card: 0 4px 20px rgba(14, 19, 32, 0.12);
   --shadow-hover: 0 8px 30px rgba(14, 19, 32, 0.1);
   --shadow-glow-ocre: 0 0 20px rgba(242, 135, 13, 0.3);
-  
+
+  /* Motion */
   --duration-cinematic: 700ms;
   --duration-micro: 150ms;
+  --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
   --easing-cinematic: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+/* Semantic aliases — different names, no circular refs */
 @theme inline {
-  /* Color mappings for Tailwind utilities */
   --color-background: var(--color-paper);
   --color-foreground: var(--color-encre);
   --color-primary: var(--color-ocre);
@@ -67,68 +72,71 @@
   --color-border: var(--color-line);
   --color-input: var(--color-line);
   --color-ring: var(--color-ocre);
-  
-  /* Typography mappings */
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  
-  /* Radius mappings */
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
 }
 
-/* Base styles */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-encre);
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    background-color: rgba(242, 135, 13, 0.18);
+    color: var(--color-encre);
+  }
+}
+
 :root {
   color-scheme: light;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-paper: #0A0C12;
-  --color-encre: #F1F3F8;
-  --color-ink2: #AEB6C6;
-  --color-ink3: #7E8699;
-  --color-line: rgba(255,255,255,.09);
-  --color-line2: rgba(255,255,255,.16);
-  --color-surface: #12151F;
-  --color-surface2: #171B27;
+  --color-paper: #0a0c12;
+  --color-encre: #f1f3f8;
+  --color-ink2: #aeb6c6;
+  --color-ink3: #7e8699;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --color-line2: rgba(255, 255, 255, 0.16);
+  --color-surface: #12151f;
+  --color-surface2: #171b27;
 }
 
-/* Animation keyframes */
-@keyframes lg-fade {
-  from {
-    opacity: 0;
-  }
+@keyframes spin {
   to {
-    opacity: 1;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes lg-rise {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes lg-sun {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

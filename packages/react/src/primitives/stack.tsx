@@ -1,6 +1,7 @@
 /**
  * memo-ui Stack
- * Flexbox layout component for vertical/horizontal stacking
+ * Flexbox layout — gap via inline style so dynamic values always work
+ * (Tailwind cannot see template-literal class names).
  */
 
 import React, { forwardRef } from 'react';
@@ -10,6 +11,7 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   align?: 'start' | 'center' | 'end' | 'stretch';
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  /** Spacing in 4px units (gap={4} → 1rem) */
   gap?: number;
   wrap?: boolean;
 }
@@ -38,40 +40,45 @@ const justifyMap = {
 } as const;
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(
-  ({
-    direction = 'column',
-    align = 'start',
-    justify = 'start',
-    gap = 0,
-    wrap = false,
-    className,
-    children,
-    ...props
-  }, ref) => {
+  (
+    {
+      direction = 'column',
+      align = 'start',
+      justify = 'start',
+      gap = 0,
+      wrap = false,
+      className,
+      style,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
         className={cn(
-          // Base styles
           'flex',
-
-          // Direction
           directionMap[direction],
-
-          // Alignment
           alignMap[align],
-
-          // Justification
           justifyMap[justify],
-
-          // Wrap
           wrap && 'flex-wrap',
-
-          // Gap (using Tailwind spacing scale)
-          gap > 0 && `gap-[${gap * 0.25}rem]`,
-
           className
         )}
+        style={{
+          display: 'flex',
+          flexDirection:
+            direction === 'row'
+              ? 'row'
+              : direction === 'column'
+                ? 'column'
+                : direction === 'row-reverse'
+                  ? 'row-reverse'
+                  : 'column-reverse',
+          gap: gap > 0 ? `${gap * 0.25}rem` : undefined,
+          flexWrap: wrap ? 'wrap' : undefined,
+          ...style,
+        }}
         {...props}
       >
         {children}

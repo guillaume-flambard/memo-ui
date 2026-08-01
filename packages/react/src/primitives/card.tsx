@@ -1,7 +1,5 @@
 /**
  * memo-ui Card
- * Card component with lg-card hover (largo-ai inspired)
- * Elevated container with shadow and hover lift
  */
 
 import React, { forwardRef } from 'react';
@@ -12,9 +10,10 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const cardVariants = {
-  default: 'bg-[var(--color-surface)] border-[var(--color-line)]',
-  outlined: 'bg-[var(--color-surface)] border-[var(--color-line2)]',
-  elevated: 'bg-[var(--color-surface)] border-[var(--color-line)] shadow-[var(--shadow-card)]',
+  default: 'border-[var(--color-line)] bg-[var(--color-surface)] shadow-none',
+  outlined: 'border-[var(--color-line2)] bg-[var(--color-surface)] shadow-none',
+  elevated:
+    'border-[var(--color-line)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]',
 } as const;
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -23,14 +22,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          // Base styles
-          'rounded-lg border',
-          'transition-all duration-150',
-          'hover:-translate-y-1 hover:shadow-[var(--shadow-hover)]',
-          
-          // Variant
+          'overflow-hidden rounded-2xl border',
+          'transition-[transform,box-shadow] duration-150 ease-out',
+          'hover:-translate-y-0.5 hover:shadow-[var(--shadow-hover)]',
           cardVariants[variant],
-          
           className
         )}
         {...props}
@@ -45,56 +40,43 @@ Card.displayName = 'Card';
 
 export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    />
+    <div ref={ref} className={cn('flex flex-col gap-1.5 px-5 pt-5', className)} {...props} />
   )
 );
-
 CardHeader.displayName = 'CardHeader';
 
-export const CardTitle = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
+export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-lg font-semibold text-[var(--color-encre)]', className)}
+      className={cn(
+        'font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-[var(--color-encre)]',
+        className
+      )}
       {...props}
     />
   )
 );
-
 CardTitle.displayName = 'CardTitle';
 
-export const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
-  ({ className, ...props }, ref) => (
-    <p
-      ref={ref}
-      className={cn('text-sm text-[var(--color-ink2)]', className)}
-      {...props}
-    />
-  )
-);
-
+export const CardDescription = forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn('text-sm leading-relaxed text-[var(--color-ink3)]', className)} {...props} />
+));
 CardDescription.displayName = 'CardDescription';
 
 export const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
+    <div ref={ref} className={cn('px-5 py-4', className)} {...props} />
   )
 );
-
 CardContent.displayName = 'CardContent';
 
 export const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex items-center p-6 pt-0', className)}
-      {...props}
-    />
+    <div ref={ref} className={cn('flex items-center justify-end gap-2 px-5 pb-5', className)} {...props} />
   )
 );
-
 CardFooter.displayName = 'CardFooter';

@@ -8,11 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@memo-ui/core": "workspace:*",
+    "@memo-ui/react": "workspace:*",
+    "geist": "^1.7.2",
     "next": "^16.2.9",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "@memo-ui/react": "workspace:*",
-    "@memo-ui/core": "workspace:*"
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

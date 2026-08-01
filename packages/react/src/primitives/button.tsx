@@ -1,8 +1,6 @@
 /**
  * memo-ui Button
- * Primary action component with ocre accent signature
- * Variants: primary, secondary, ghost, outline
- * Sizes: sm, md, lg
+ * Primary action with ocre accent. Interactive motion < 300ms, transform/opacity only.
  */
 
 import React, { forwardRef } from 'react';
@@ -15,47 +13,57 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const buttonVariants = {
-  primary: 'bg-[var(--color-ocre)] text-[var(--color-on-ocre)] border-[var(--color-ocre-deep)] hover:brightness',
-  secondary: 'bg-[var(--color-surface)] text-[var(--color-encre)] border-[var(--color-line2)] hover:bg-[var(--color-surface2)]',
-  ghost: 'bg-transparent text-[var(--color-encre)] border-transparent hover:bg-[var(--color-ocre-soft)]',
-  outline: 'bg-transparent text-[var(--color-encre)] border-[var(--color-line2)] hover:border-[var(--color-ocre)]',
+  primary:
+    'bg-[var(--color-ocre)] text-[var(--color-on-ocre)] border-transparent hover:brightness-[1.05] active:brightness-[0.97]',
+  secondary:
+    'bg-[var(--color-surface)] text-[var(--color-encre)] border-[var(--color-line)] hover:border-[var(--color-line2)] hover:bg-[var(--color-surface2)]',
+  ghost:
+    'bg-transparent text-[var(--color-encre)] border-transparent hover:bg-[var(--color-ocre-soft)]',
+  outline:
+    'bg-transparent text-[var(--color-encre)] border-[var(--color-line)] hover:border-[var(--color-ocre)] hover:text-[var(--color-ocre-ink)]',
 } as const;
 
 const buttonSizes = {
-  sm: 'px-3 py-1.5 text-sm h-8',
-  md: 'px-4 py-2 text-base h-10',
-  lg: 'px-6 py-3 text-lg h-12',
+  sm: 'h-9 px-3.5 text-sm',
+  md: 'h-10 px-4 text-sm',
+  lg: 'h-12 px-5 text-base',
 } as const;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', loading = false, className, disabled, children, ...props }, ref) => {
+  (
+    {
+      variant = 'primary',
+      size = 'md',
+      loading = false,
+      className,
+      disabled,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <button
         ref={ref}
         disabled={disabled || loading}
         className={cn(
-          // Base styles
           'inline-flex items-center justify-center gap-2',
-          'font-medium transition-all duration-150',
-          'rounded-lg border',
-          'focus:outline-none focus:ring-2 focus:ring-[var(--color-ocre)] focus:ring-offset-2',
-          'disabled:opacity-50 disabled:cursor-not-allowed',
-
-          // Variant
+          'rounded-xl border font-medium',
+          'transition-[transform,opacity,filter,background-color,border-color,color] duration-150 ease-out',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ocre)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
+          'disabled:pointer-events-none disabled:opacity-50',
+          'active:scale-[0.98]',
           buttonVariants[variant],
-
-          // Size
           buttonSizes[size],
-
-          // Shadow for primary
-          variant === 'primary' && 'shadow-[var(--shadow-glow-ocre)]',
-
           className
         )}
         {...props}
       >
         {loading ? (
-          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+          <span
+            className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+            aria-hidden
+          />
         ) : (
           children
         )}

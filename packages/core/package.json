@@ -17,6 +17,9 @@
     "dev": "tsc --watch",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "tailwindcss": "^4.3.3"
+  },
   "devDependencies": {
     "typescript": "^6.0.3"
   }

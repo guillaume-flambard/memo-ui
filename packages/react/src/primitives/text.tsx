@@ -1,14 +1,11 @@
 /**
  * memo-ui Text
- * Typography wrapper component
- * Size: xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl
- * Weight: light, normal, medium, semibold, bold
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -34,23 +31,22 @@ const textWeights = {
   bold: 'font-bold',
 } as const;
 
+const displaySizes = new Set(['xl', '2xl', '3xl', '4xl', '5xl']);
+
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ size = 'base', weight = 'normal', as = 'p', className, children, ...props }, ref) => {
     const Component = as;
-    
+
     return (
       <Component
-        ref={ref}
+        ref={ref as never}
         className={cn(
-          // Base styles
           'text-[var(--color-encre)]',
-          
-          // Size
+          displaySizes.has(size)
+            ? 'font-[family-name:var(--font-display)] tracking-tight'
+            : 'font-[family-name:var(--font-sans)]',
           textSizes[size],
-          
-          // Weight
           textWeights[weight],
-          
           className
         )}
         {...props}

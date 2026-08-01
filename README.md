@@ -40,14 +40,17 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 
 ## Status
 
-🚧 Phase 1 — Core Foundation (Weekend)
+🚧 Phase 1 — Core Foundation (Weekend) — 80% complete
 
-- [x] Architecture setup
+- [x] Architecture setup (Turborepo + pnpm)
 - [x] Design tokens (colors, typography, spacing, radius, shadows, motion)
-- [ ] Voice layer (positioning, audience, messaging, voice, concepts)
-- [ ] Brand assets
-- [ ] Tailwind CSS v4 config
-- [ ] Core utilities
+- [x] Tailwind CSS v4 config with @theme
+- [x] Voice layer (positioning, audience, messaging, voice, concepts, differentiation)
+- [x] Core utilities (cn(), keyboardKeys)
+- [ ] GSAP wrappers
+- [ ] Motion primitives
+- [ ] Brand assets (logo)
+- [ ] 5 theme presets
 
 ## Progress
 
@@ -58,14 +61,17 @@ Design system personnel avec âme — precision + warmth, pour shipper rapidemen
 - **Radius**: 8, 12, 16, 999 (pill)
 - **Shadows**: Subtle elevation + card/hover special shadows
 - **Motion**: Linear-style timing (120-180ms micro, 700ms cinematic)
+- **Tailwind CSS v4**: @theme directive with light/dark mode support
+- **Voice layer**: Jon Neylon-style agent-ready brand encoding
+- **Utils package**: cn() class merger, keyboard navigation utilities
 
 ## Next steps
 
-1. Créer Tailwind CSS v4 config avec `@theme`
-2. Configurer GSAP wrappers
-3. Créer voice layer (Jon Neylon style)
-4. Créer brand assets (logo)
-5. Démarrer primitives (Button, Card, Input, etc.)
+1. Configurer GSAP wrappers (cinematic motion)
+2. Créer Motion primitives (micro-interactions)
+3. Créer brand assets (logo @memo-ui)
+4. Démarrer primitives (Button, Card, Input, etc.)
+5. Setup Storybook for documentation
 
 ## License
 

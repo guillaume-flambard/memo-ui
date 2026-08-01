@@ -1,5 +1,5 @@
 {
-  "name": "@memo-ui/core",
+  "name": "@memo-ui/react",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -9,15 +9,27 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./tailwind.css": "./tailwind.css"
+    }
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@memo-ui/core": "workspace:*",
+    "@memo-ui/utils": "workspace:*",
+    "@memo-ui/motion": "workspace:*",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0"
+  },
   "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   }
 }

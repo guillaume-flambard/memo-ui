@@ -25,8 +25,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           'flex h-11 w-full rounded-xl border bg-[var(--color-surface)] px-3.5',
           'text-sm text-[var(--color-encre)] placeholder:text-[var(--color-ink3)]',
-          'transition-[border-color,box-shadow] duration-150 ease-out',
-          'focus:outline-none focus:ring-2 focus:ring-offset-0',
+          'transition-[border-color,box-shadow] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-0',
           'disabled:cursor-not-allowed disabled:opacity-50',
           inputVariants[variant],
           className

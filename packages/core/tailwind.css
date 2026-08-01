@@ -29,7 +29,7 @@
   --color-on-ocre: #1b1204;
   --color-surface: #ffffff;
   --color-surface2: #f7f9fb;
-  --color-ok: #16a34a;
+  --color-ok: #48bb78; /* aligned with success — was near-duplicate #16a34a */
   --color-success: #48bb78;
   --color-warning: #ed8936;
   --color-error: #e53e3e;
@@ -72,6 +72,36 @@
   --color-border: var(--color-line);
   --color-input: var(--color-line);
   --color-ring: var(--color-ocre);
+
+  /* Component — Badge */
+  --badge-bg-default: var(--color-surface2);
+  --badge-fg-default: var(--color-ink2);
+  --badge-border-default: var(--color-line);
+  --badge-bg-ocre: var(--color-ocre-soft);
+  --badge-fg-ocre: var(--color-ocre-ink);
+  --badge-border-ocre: transparent;
+  --badge-bg-outline: transparent;
+  --badge-fg-outline: var(--color-encre);
+  --badge-border-outline: var(--color-line2);
+  --badge-bg-success: color-mix(in srgb, var(--color-success) 14%, transparent);
+  --badge-fg-success: var(--color-success);
+  --badge-border-success: transparent;
+  --badge-bg-warning: color-mix(in srgb, var(--color-warning) 14%, transparent);
+  --badge-fg-warning: var(--color-warning);
+  --badge-border-warning: transparent;
+  --badge-bg-error: color-mix(in srgb, var(--color-error) 14%, transparent);
+  --badge-fg-error: var(--color-error);
+  --badge-border-error: transparent;
+
+  /* Component — Divider */
+  --divider-color-line: var(--color-line);
+  --divider-color-line2: var(--color-line2);
+  --divider-label-color: var(--color-ink3);
+
+  /* Component — Icon */
+  --icon-color-encre: var(--color-encre);
+  --icon-color-ink2: var(--color-ink2);
+  --icon-color-ocre: var(--color-ocre);
 }
 
 @layer base {
@@ -110,7 +140,7 @@
   }
 
   ::selection {
-    background-color: rgba(242, 135, 13, 0.18);
+    background-color: var(--color-ocre-soft);
     color: var(--color-encre);
   }
 }

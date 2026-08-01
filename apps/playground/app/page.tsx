@@ -9,6 +9,10 @@ import {
   Input,
   Text,
   Stack,
+  Icon,
+  Badge,
+  Divider,
+  Grid,
 } from '@memo-ui/react';
 
 const sections = [
@@ -16,8 +20,18 @@ const sections = [
   { id: 'cards', label: 'Card' },
   { id: 'inputs', label: 'Input' },
   { id: 'typography', label: 'Text' },
+  { id: 'layout', label: 'Layout' },
+  { id: 'badge', label: 'Badge' },
   { id: 'tokens', label: 'Tokens' },
 ] as const;
+
+function SparkleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
+    </svg>
+  );
+}
 
 function Section({
   id,
@@ -251,6 +265,69 @@ export default function Home() {
                 Mono kickers
               </p>
             </div>
+          </Section>
+
+          <Section
+            id="layout"
+            title="Icon · Divider · Grid"
+            description="Icon wraps SVG children. Divider marks sections. Grid complements Stack."
+          >
+            <div className="grid gap-10">
+              <div>
+                <VariantLabel>Icon · sizes and color</VariantLabel>
+                <Stack direction="row" gap={4} className="items-center">
+                  <Icon size="sm" color="ink2">
+                    <SparkleIcon />
+                  </Icon>
+                  <Icon size="md" color="encre">
+                    <SparkleIcon />
+                  </Icon>
+                  <Icon size="lg" color="ocre" label="Accent">
+                    <SparkleIcon />
+                  </Icon>
+                </Stack>
+              </div>
+              <div>
+                <VariantLabel>Divider</VariantLabel>
+                <div className="max-w-md space-y-4">
+                  <Divider />
+                  <Divider label="Or continue with" />
+                </div>
+              </div>
+              <div>
+                <VariantLabel>Grid · 3 columns</VariantLabel>
+                <Grid columns={3} gap={4}>
+                  {['A', 'B', 'C'].map((cell) => (
+                    <Card key={cell} variant="outlined">
+                      <CardHeader>
+                        <CardTitle>Cell {cell}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <Text size="sm" className="text-[var(--color-ink2)]">
+                          Tokenized gap, paper surface.
+                        </Text>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </Grid>
+              </div>
+            </div>
+          </Section>
+
+          <Section
+            id="badge"
+            title="Badge"
+            description="Compact labels. Ocre is punctuation — use sparingly."
+          >
+            <Stack direction="row" gap={2} wrap className="items-center">
+              <Badge>Default</Badge>
+              <Badge variant="ocre">Pivot</Badge>
+              <Badge variant="outline">Outline</Badge>
+              <Badge variant="success">Live</Badge>
+              <Badge variant="warning">Soon</Badge>
+              <Badge variant="error">Blocked</Badge>
+              <Badge size="sm">Small</Badge>
+            </Stack>
           </Section>
 
           <Section

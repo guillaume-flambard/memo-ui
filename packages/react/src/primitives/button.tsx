@@ -46,13 +46,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         disabled={disabled || loading}
+        aria-busy={loading || undefined}
         className={cn(
           'inline-flex items-center justify-center gap-2',
           'rounded-xl border font-medium',
-          'transition-[transform,opacity,filter,background-color,border-color,color] duration-150 ease-out',
-          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ocre)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
+          'transition-[transform,opacity,filter,background-color,border-color,color] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
           'disabled:pointer-events-none disabled:opacity-50',
           'active:scale-[0.98]',
+          'aria-busy:pointer-events-none',
           buttonVariants[variant],
           buttonSizes[size],
           className

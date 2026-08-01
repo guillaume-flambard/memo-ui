@@ -23,7 +23,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           'overflow-hidden rounded-2xl border',
-          'transition-[transform,box-shadow] duration-150 ease-out',
+          'transition-[transform,box-shadow] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
           'hover:-translate-y-0.5 hover:shadow-[var(--shadow-hover)]',
           cardVariants[variant],
           className

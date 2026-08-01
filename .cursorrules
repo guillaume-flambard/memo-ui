@@ -1,0 +1,29 @@
+# Design System — Règles projet
+
+Stack : React + TypeScript + Tailwind CSS, animations avec Motion (motion/react), stories avec Storybook 8+ (CSF 3). Réponds en français.
+
+## Construction from scratch
+Bibliothèque construite de zéro, sans base externe imposée (pas de shadcn/ui ni Radix comme socle de style). Tokens et composants sur mesure selon la marque. Pour la logique/a11y des composants complexes (Dialog, Select, Combobox, Tabs), les primitives headless (Radix Primitives, Headless UI) sont autorisées UNIQUEMENT pour le comportement, jamais pour le style — tout le visuel vient des tokens. Signale ce choix quand tu le fais.
+
+## Règles permanentes
+- Aucune valeur codée en dur : uniquement des design tokens (variables CSS / classes Tailwind mappées). Jamais de classes arbitraires type p-[13px].
+- Tokens organisés en 3 niveaux : Foundation → Semantic → Component. Nommage : --{component}-{property}-{variant/state}.
+- Tous les composants couvrent : rest, hover, active, focus, disabled (+ loading si pertinent).
+- Accessibilité native : rôles/ARIA corrects, focus visible, navigation clavier. Vise WCAG AA.
+- Composants composables (children/slots) plutôt que props rigides quand c'est adapté. forwardRef quand on enveloppe un élément natif.
+- Props typées en TypeScript, interface exportée. Variantes via cva (class-variance-authority) ou équivalent projet (maps de variantes + `cn()` de `@memo-ui/utils`).
+
+## Animations (Motion)
+- Anime uniquement opacity et transform (jamais height/width/top/margin).
+- Spring pour l'interactif (bounce < 0.1) ; easing cubic-bezier(0.23, 1, 0.32, 1) pour le décoratif.
+- Durées < 300ms pour l'interactif, 400ms+ pour les transitions de page.
+- Toujours le fallback useReducedMotion (duration: 0, pas de transform).
+
+## Ordre de construction (atomic design)
+tokens → primitives (Button, Input, Text, Icon, Box/Stack) → composants (Card, Modal, Tabs, Select, Tooltip) → patterns (Form, Navigation). Ne jamais construire un composant avant ses dépendances. Réutiliser les composants existants (un Modal utilise le Button existant).
+
+## Chemins memo-ui
+- Tokens : `packages/core/src/tokens/`, `packages/core/tailwind.css`
+- Composants : `packages/react/src/primitives/`
+- Barrel : `packages/react/src/index.ts`
+- Stories : `apps/docs/` (ou `*.stories.tsx` colocalisées)

@@ -28,6 +28,10 @@
       ],
       "outputs": [
         "coverage/**"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "vitest.config.*"
       ]
     },
     "typecheck": {

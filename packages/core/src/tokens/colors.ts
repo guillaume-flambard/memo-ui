@@ -27,8 +27,8 @@ export const colors = {
   surface: '#FFFFFF',
   surface2: '#F7F9FB',
 
-  // Semantic colors
-  ok: '#16a34a', // Vert pour statut (terminé/validé/en ligne) — usage réservé
+  // Semantic colors — prefer `success` for UI chrome; `ok` kept as reserved status alias
+  ok: '#48BB78', // Aligned with success (was #16a34a — near-duplicate removed)
   success: '#48BB78',
   warning: '#ED8936',
   error: '#E53E3E',

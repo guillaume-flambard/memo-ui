@@ -6,6 +6,8 @@ node_modules
 dist
 .next
 .turbo
+storybook-static
+apps/docs/storybook-static
 
 # Environment
 .env
@@ -25,3 +27,6 @@ Thumbs.db
 *.log
 npm-debug.log
 pnpm-debug.log
+
+# TS incremental
+*.tsbuildinfo

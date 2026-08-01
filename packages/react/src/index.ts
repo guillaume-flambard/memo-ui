@@ -17,3 +17,15 @@ export type { TextProps } from './primitives/text';
 
 export { Stack } from './primitives/stack';
 export type { StackProps } from './primitives/stack';
+
+export { Icon } from './primitives/icon';
+export type { IconProps } from './primitives/icon';
+
+export { Badge } from './primitives/badge';
+export type { BadgeProps } from './primitives/badge';
+
+export { Divider } from './primitives/divider';
+export type { DividerProps } from './primitives/divider';
+
+export { Grid } from './primitives/grid';
+export type { GridProps } from './primitives/grid';

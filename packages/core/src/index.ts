@@ -28,7 +28,7 @@ export const cssVars = {
   '--color-on-ocre': '#1B1204',
   '--color-surface': '#FFFFFF',
   '--color-surface2': '#F7F9FB',
-  '--color-ok': '#16a34a',
+  '--color-ok': '#48BB78',
   '--color-success': '#48BB78',
   '--color-warning': '#ED8936',
   '--color-error': '#E53E3E',

@@ -8,6 +8,7 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
+    "storybook": "pnpm --filter @memo-ui/docs storybook",
     "format:check": "pnpm --filter @memo-ui/react format:check"
   },
   "devDependencies": {

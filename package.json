@@ -1,0 +1,17 @@
+{
+  "name": "memo-ui",
+  "private": true,
+  "packageManager": "pnpm@11.8.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "format:check": "pnpm --filter @memo-ui/react format:check"
+  },
+  "devDependencies": {
+    "turbo": "2.10.3",
+    "typescript": "6.0.3"
+  }
+}

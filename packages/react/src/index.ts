@@ -88,3 +88,35 @@ export type { AvatarProps } from './primitives/avatar';
 
 export { FormField } from './primitives/form-field';
 export type { FormFieldProps } from './primitives/form-field';
+
+export { Link } from './primitives/link';
+export type { LinkProps } from './primitives/link';
+
+export {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './primitives/breadcrumb';
+export type {
+  BreadcrumbProps,
+  BreadcrumbListProps,
+  BreadcrumbItemProps,
+  BreadcrumbLinkProps,
+  BreadcrumbPageProps,
+  BreadcrumbSeparatorProps,
+} from './primitives/breadcrumb';
+
+export { Pagination } from './primitives/pagination';
+export type { PaginationProps } from './primitives/pagination';
+
+export { Skeleton } from './primitives/skeleton';
+export type { SkeletonProps } from './primitives/skeleton';
+
+export { Progress } from './primitives/progress';
+export type { ProgressProps } from './primitives/progress';
+
+export { Alert } from './primitives/alert';
+export type { AlertProps, AlertTone } from './primitives/alert';

@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import {
   Button,
   Card,
@@ -39,6 +41,17 @@ import {
   Spinner,
   Avatar,
   FormField,
+  Link,
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  Pagination,
+  Skeleton,
+  Progress,
+  Alert,
 } from '@memo-ui/react';
 
 const sections = [
@@ -47,12 +60,19 @@ const sections = [
   { id: 'inputs', label: 'Input' },
   { id: 'forms', label: 'Forms' },
   { id: 'feedback', label: 'Feedback' },
+  { id: 'chrome', label: 'Chrome' },
   { id: 'overlays', label: 'Overlays' },
   { id: 'typography', label: 'Text' },
   { id: 'layout', label: 'Layout' },
   { id: 'badge', label: 'Badge' },
   { id: 'tokens', label: 'Tokens' },
 ] as const;
+
+
+function PaginationDemo() {
+  const [page, setPage] = React.useState(2);
+  return <Pagination page={page} pageCount={8} onPageChange={setPage} />;
+}
 
 function ToastTriggers() {
   const { toast } = useToast();
@@ -358,6 +378,68 @@ export default function Home() {
                 <Avatar size="lg" fallback="Guillaume Flambard" />
               </Stack>
             </Stack>
+          </Section>
+
+          <Section
+            id="chrome"
+            title="Navigation · chrome"
+            description="Link, Breadcrumb, Pagination, Skeleton, Progress, and Alert."
+          >
+            <div className="grid gap-10">
+              <div>
+                <VariantLabel>Link · Breadcrumb</VariantLabel>
+                <Stack gap={4}>
+                  <Text size="sm">
+                    See the{' '}
+                    <Link href="#tokens" underline="always">
+                      token swatches
+                    </Link>{' '}
+                    or an{' '}
+                    <Link href="https://example.com" external>
+                      external page
+                    </Link>
+                    .
+                  </Text>
+                  <Breadcrumb>
+                    <BreadcrumbList>
+                      <BreadcrumbItem>
+                        <BreadcrumbLink href="#buttons">Home</BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink href="#forms">Forms</BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbPage>Chrome</BreadcrumbPage>
+                      </BreadcrumbItem>
+                    </BreadcrumbList>
+                  </Breadcrumb>
+                </Stack>
+              </div>
+              <div>
+                <VariantLabel>Pagination · Progress</VariantLabel>
+                <Stack gap={4}>
+                  <PaginationDemo />
+                  <Progress value={62} label="Demo progress" className="max-w-md" />
+                </Stack>
+              </div>
+              <div>
+                <VariantLabel>Skeleton · Alert</VariantLabel>
+                <Stack gap={4} className="max-w-md">
+                  <Stack direction="row" gap={3} className="items-center">
+                    <Skeleton variant="circular" />
+                    <Stack gap={2} className="flex-1">
+                      <Skeleton className="w-full" />
+                      <Skeleton size="sm" className="w-2/3" />
+                    </Stack>
+                  </Stack>
+                  <Alert tone="info" title="Chrome wave" dismissible onDismiss={() => undefined}>
+                    Link, Breadcrumb, Pagination, Skeleton, Progress, Alert.
+                  </Alert>
+                </Stack>
+              </div>
+            </div>
           </Section>
 
           <Section

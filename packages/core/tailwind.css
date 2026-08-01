@@ -183,6 +183,48 @@
   /* Component — FormField */
   --form-field-hint: var(--color-ink3);
   --form-field-error: var(--color-error-ink);
+
+  /* Component — Link */
+  --link-fg: var(--color-ocre-ink);
+  --link-fg-hover: var(--color-ocre);
+  --link-underline: var(--color-ocre);
+
+  /* Component — Breadcrumb */
+  --breadcrumb-fg: var(--color-ink2);
+  --breadcrumb-fg-current: var(--color-encre);
+  --breadcrumb-separator: var(--color-ink3);
+
+  /* Component — Pagination */
+  --pagination-fg: var(--color-encre);
+  --pagination-fg-muted: var(--color-ink3);
+  --pagination-bg-active: var(--color-ocre-soft);
+  --pagination-fg-active: var(--color-ocre-ink);
+
+  /* Component — Skeleton */
+  --skeleton-bg: var(--color-surface2);
+  --skeleton-highlight: var(--color-line);
+
+  /* Component — Progress */
+  --progress-track: var(--color-surface2);
+  --progress-indicator: var(--color-ocre);
+  --progress-border: var(--color-line);
+
+  /* Component — Alert */
+  --alert-bg-default: var(--color-surface);
+  --alert-fg-default: var(--color-encre);
+  --alert-border-default: var(--color-line);
+  --alert-bg-success: color-mix(in srgb, var(--color-success) 14%, var(--color-paper));
+  --alert-fg-success: var(--color-success-ink);
+  --alert-border-success: color-mix(in srgb, var(--color-success) 35%, var(--color-line));
+  --alert-bg-warning: color-mix(in srgb, var(--color-warning) 14%, var(--color-paper));
+  --alert-fg-warning: var(--color-warning-ink);
+  --alert-border-warning: color-mix(in srgb, var(--color-warning) 35%, var(--color-line));
+  --alert-bg-error: color-mix(in srgb, var(--color-error) 14%, var(--color-paper));
+  --alert-fg-error: var(--color-error-ink);
+  --alert-border-error: color-mix(in srgb, var(--color-error) 35%, var(--color-line));
+  --alert-bg-info: var(--color-ocre-soft);
+  --alert-fg-info: var(--color-ocre-ink);
+  --alert-border-info: color-mix(in srgb, var(--color-ocre) 35%, var(--color-line));
 }
 
 @layer base {
@@ -285,6 +327,17 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%);
+  }
+}
+
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
   }
 }
 

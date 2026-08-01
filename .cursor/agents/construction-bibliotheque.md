@@ -21,8 +21,8 @@ Tu pilotes la construction complète d'une bibliothèque de composants de design
 
 | Statut | Composants |
 |--------|------------|
-| Existe | Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField |
-| Suite | Navigation patterns, theme presets, brand assets |
+| Existe | Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField, Link, Breadcrumb, Pagination, Skeleton, Progress, Alert |
+| Suite | Theme presets, brand assets, denser navigation patterns |
 
 ## Vagues parallèles (Task)
 
@@ -31,7 +31,8 @@ Exécution **disque** (pas coller du code dans le chat). Après sync agents :
 1. **Wave 1** (parallèle, natif) : Checkbox, Radio
 2. **Wave 2** (parallèle) : Tooltip (Radix), Toast (custom + provider/hook)
 3. **Wave 3** (séquentiel ou 2 workers max) : Tabs → Modal → Select
-4. **Consolidation** : barrel `packages/react/src/index.ts`, README status, playground léger, `@revue-ds`, `pnpm --filter @memo-ui/react test`
+4. **Wave 4 (chrome)** : Link, Breadcrumb, Pagination, Skeleton, Progress, Alert
+5. **Consolidation** : barrel `packages/react/src/index.ts`, README status, playground léger, `@revue-ds`, `pnpm --filter @memo-ui/react test`
 
 ## Pipeline par composant
 

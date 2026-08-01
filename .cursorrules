@@ -8,8 +8,8 @@ Docs fondation (MDX) : `apps/docs/stories/docs/`. README racine = vue d’ensemb
 
 ## Inventaire
 
-- **Fait :** Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField
-- **Suite :** Navigation patterns, theme presets, brand assets
+- **Fait :** Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField, Link, Breadcrumb, Pagination, Skeleton, Progress, Alert
+- **Suite :** Theme presets, brand assets, denser navigation patterns
 - Tokens / marque déjà posés — ne pas reconstruire sans demande.
 
 ## Construction from scratch

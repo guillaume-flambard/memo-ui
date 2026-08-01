@@ -53,7 +53,7 @@ pnpm --filter @memo-ui/react test
 | Package | Role |
 | --- | --- |
 | `@memo-ui/core` | Design tokens (`colors`, spacing, radius, shadows, motion) + `tailwind.css` |
-| `@memo-ui/react` | Primitives: Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField |
+| `@memo-ui/react` | Primitives: Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField, Link, Breadcrumb, Pagination, Skeleton, Progress, Alert |
 | `@memo-ui/utils` | `cn()` and shared helpers |
 | `@memo-ui/docs` | Storybook app (`apps/docs`) |
 
@@ -107,6 +107,17 @@ Never hardcode colors or one-off spacing. Prefer CSS vars / mapped Tailwind clas
 | Spinner | `primitives/spinner.tsx` | decorative vs labeled (`role="status"`); sizes |
 | Avatar | `primitives/avatar.tsx` | image + initials fallback; sizes |
 | FormField | `primitives/form-field.tsx` | Label + control + hint/error; a11y wiring |
+
+### Vague 4 (navigation / chrome)
+
+| Component | Path | Notes |
+| --- | --- | --- |
+| Link | `primitives/link.tsx` | `<a>` text link; `external` → new tab + SR hint |
+| Breadcrumb | `primitives/breadcrumb.tsx` | nav + list; `BreadcrumbPage` = `aria-current` |
+| Pagination | `primitives/pagination.tsx` | prev/next + pages; reuses Button |
+| Skeleton | `primitives/skeleton.tsx` | pulse placeholder; reduced-motion via core CSS |
+| Progress | `primitives/progress.tsx` | determinate bar; valuemin/max/now |
+| Alert | `primitives/alert.tsx` | inline banner; tones; optional dismiss |
 
 Import from `@memo-ui/react`:
 
@@ -162,6 +173,7 @@ Tailwind v4 only emits classes it can see. Apps must `@source` `packages/react` 
 - [x] Storybook 10 + MCP + foundation MDX
 - [x] Vague 2 — Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast
 - [x] Vague 3 — Label, Textarea, Switch, Spinner, Avatar, FormField
+- [x] Vague 4 — Link, Breadcrumb, Pagination, Skeleton, Progress, Alert
 - [ ] Brand assets (logo)
 - [ ] Theme presets
 - [ ] Patterns: Navigation

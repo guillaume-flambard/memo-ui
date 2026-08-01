@@ -8,8 +8,8 @@ Respond in French when chatting with Guillaume; keep code, JSDoc, and Storybook 
 
 | Status | Components |
 |--------|------------|
-| Done | Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField |
-| Next | Navigation patterns, theme presets, brand assets |
+| Done | Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField, Link, Breadcrumb, Pagination, Skeleton, Progress, Alert |
+| Next | Theme presets, brand assets, denser navigation patterns |
 
 Brand and tokens are already set (paper/ink + ocre, Space Grotesk/Geist, soft radius). Do **not** re-ask for brand or rebuild foundation tokens.
 

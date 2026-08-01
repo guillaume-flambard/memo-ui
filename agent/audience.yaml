@@ -1,0 +1,21 @@
+# Audience Definition
+
+primary:
+  - Indie developers building SaaS products
+  - Solo founders creating MVPs
+  - Technical founders who care about design
+
+secondary:
+  - Design engineers at small teams
+  - Frontend developers wanting premium UI
+  - AI engineers using agents for UI development
+
+tertiary:
+  - Design agencies serving indie clients
+  - Startup accelerators
+  - Technical content creators
+
+anti-audience:
+  - Enterprise teams with rigid design systems
+  - Non-technical founders wanting turnkey solutions
+  - Agencies serving large corporate clients

@@ -22,6 +22,11 @@ describe('Input', () => {
     expect(screen.getByRole('textbox', { name: 'Locked' })).toBeDisabled();
   });
 
+  it('marks error variant as aria-invalid', () => {
+    render(<Input aria-label="Email" variant="error" />);
+    expect(screen.getByRole('textbox', { name: 'Email' })).toHaveAttribute('aria-invalid', 'true');
+  });
+
   it('forwards ref', () => {
     const ref = { current: null as HTMLInputElement | null };
     render(<Input ref={ref} aria-label="Ref" />);

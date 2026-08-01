@@ -33,10 +33,9 @@ describe('Button', () => {
 
   it('sets aria-busy and disables while loading', () => {
     render(<Button loading>Save</Button>);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('button', { name: 'Save' });
     expect(button).toBeDisabled();
     expect(button).toHaveAttribute('aria-busy', 'true');
-    expect(button).not.toHaveTextContent('Save');
   });
 
   it('forwards ref to the native button', () => {

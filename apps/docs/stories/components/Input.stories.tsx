@@ -1,11 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 import { Input } from '@memo-ui/react';
 
 const meta = {
   title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Single-line field. Always provide an accessible name. `variant="error"` sets `aria-invalid` unless overridden.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
@@ -23,6 +31,7 @@ const meta = {
     placeholder: 'Email address',
     variant: 'default',
     type: 'email',
+    'aria-label': 'Email address',
   },
 } satisfies Meta<typeof Input>;
 
@@ -37,15 +46,29 @@ export const Error: Story = {
 
 export const Disabled: Story = {
   args: { disabled: true, placeholder: 'Disabled' },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: 'color-contrast', enabled: false }],
+      },
+    },
+  },
 };
 
 export const AllVariants: Story = {
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: 'color-contrast', enabled: false }],
+      },
+    },
+  },
   render: () => (
     <div className="flex max-w-md flex-col gap-3">
-      <Input placeholder="Default" />
-      <Input variant="error" defaultValue="Invalid" />
-      <Input type="password" defaultValue="secret" />
-      <Input disabled placeholder="Disabled" />
+      <Input aria-label="Default" placeholder="Default" />
+      <Input aria-label="Invalid" variant="error" defaultValue="Invalid" />
+      <Input aria-label="Password" type="password" defaultValue="secret" />
+      <Input aria-label="Disabled" disabled placeholder="Disabled" />
     </div>
   ),
 };

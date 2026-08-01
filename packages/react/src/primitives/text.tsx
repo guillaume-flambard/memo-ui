@@ -1,13 +1,18 @@
+"use client";
+
 /**
- * memo-ui Text
+ * memo-ui Text — typographic primitive (Geist body / Space Grotesk display).
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
+  /** Type scale. From `xl` up, display font is applied. `@default base` */
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
+  /** Font weight. `@default normal` */
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
+  /** Rendered HTML element. `@default p` */
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
@@ -33,6 +38,7 @@ const textWeights = {
 
 const displaySizes = new Set(['xl', '2xl', '3xl', '4xl', '5xl']);
 
+/** Polymorphic text. Choose `as` to match document outline, not only visuals. */
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ size = 'base', weight = 'normal', as = 'p', className, children, ...props }, ref) => {
     const Component = as;

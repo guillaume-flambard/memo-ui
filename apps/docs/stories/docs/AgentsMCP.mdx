@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Agents & MCP" />
+
+# Agents & MCP
+
+Storybook exposes a **Model Context Protocol** endpoint so AI coding agents can read real component docs, props, and stories instead of guessing.
+
+## Endpoints (Storybook must be running)
+
+| Resource | URL |
+| --- | --- |
+| Storybook UI | http://localhost:6006 |
+| MCP | http://localhost:6006/mcp |
+| Component manifests | http://localhost:6006/manifests/components.html |
+
+Start docs:
+
+```bash
+pnpm storybook
+# or: pnpm --filter @memo-ui/docs storybook
+```
+
+## Cursor setup
+
+Project file: `.cursor/mcp.json` (server points at the local MCP URL).
+
+Global Cursor MCP may register the same server as **`memo-ui-storybook`**. After changing MCP config, reload MCP servers in Cursor.
+
+## Agent rules (also in `AGENTS.md`)
+
+1. When Storybook is up, call MCP **before** inventing props or claiming a11y status.
+2. Prefer `list-all-documentation` / `get-documentation` and documented story examples only.
+3. Use `get-storybook-story-instructions` before writing or updating CSF stories.
+4. After UI/story changes, run story tests via MCP when available; fix real a11y/interaction failures.
+5. Never invent APIs that are not in the manifests or source.
+
+## What MCP needs from us
+
+- CSF stories with `tags: ['autodocs']`
+- Exported TypeScript prop interfaces + **JSDoc** on props (feeds react-docgen → manifests)
+- Accurate `argTypes` / `parameters.docs.description` on stories
+- Foundation MDX under `Docs/*` for product-level guidance
+
+## Unit tests vs story tests
+
+| Suite | Command / tool | Role |
+| --- | --- | --- |
+| Vitest (react package) | `pnpm --filter @memo-ui/react test` | Primitive behavior |
+| Story `play` | Interactions panel | In-browser interaction smoke |
+| MCP `run-story-tests` | Needs addon-vitest browser setup | Full story test bridge (optional / WIP) |
+
+## Manifest feature flag
+
+`apps/docs/.storybook/main.ts` enables `experimentalComponentsManifest` for preview AI manifests (Storybook 10.5+).

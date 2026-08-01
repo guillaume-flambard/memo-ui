@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Button,
   Card,
@@ -13,17 +15,60 @@ import {
   Badge,
   Divider,
   Grid,
+  Checkbox,
+  Radio,
+  RadioGroup,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Modal,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  Tooltip,
+  TooltipProvider,
+  ToastProvider,
+  ToastViewport,
+  useToast,
+  Label,
+  Textarea,
+  Switch,
+  Spinner,
+  Avatar,
+  FormField,
 } from '@memo-ui/react';
 
 const sections = [
   { id: 'buttons', label: 'Button' },
   { id: 'cards', label: 'Card' },
   { id: 'inputs', label: 'Input' },
+  { id: 'forms', label: 'Forms' },
+  { id: 'feedback', label: 'Feedback' },
+  { id: 'overlays', label: 'Overlays' },
   { id: 'typography', label: 'Text' },
   { id: 'layout', label: 'Layout' },
   { id: 'badge', label: 'Badge' },
   { id: 'tokens', label: 'Tokens' },
 ] as const;
+
+function ToastTriggers() {
+  const { toast } = useToast();
+  return (
+    <Stack direction="row" gap={2} wrap>
+      <Button
+        size="sm"
+        variant="secondary"
+        onClick={() => toast({ title: 'Saved', description: 'Playground toast.' })}
+      >
+        Toast
+      </Button>
+      <ToastViewport />
+    </Stack>
+  );
+}
 
 function SparkleIcon() {
   return (
@@ -69,7 +114,9 @@ function VariantLabel({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--color-paper)]">
+    <TooltipProvider delayDuration={200}>
+      <ToastProvider>
+        <div className="min-h-screen bg-[var(--color-paper)]">
       <header className="sticky top-0 z-20 border-b border-[var(--color-line)] bg-[color-mix(in_srgb,var(--color-paper)_88%,transparent)] backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 lg:px-10">
           <div className="flex items-baseline gap-3">
@@ -233,6 +280,107 @@ export default function Home() {
           </Section>
 
           <Section
+            id="forms"
+            title="Forms"
+            description="FormField, Label, Textarea, Switch, Checkbox, Radio, Select, and Tabs."
+          >
+            <div className="grid gap-8 lg:grid-cols-2">
+              <div className="grid gap-4">
+                <VariantLabel>FormField · Textarea · Switch</VariantLabel>
+                <FormField label="Email" hint="Work address preferred" required>
+                  <Input type="email" placeholder="you@memo.dev" />
+                </FormField>
+                <FormField label="Bio" hint="A sentence or two">
+                  <Textarea placeholder="Tell us about you" />
+                </FormField>
+                <Switch label="Marketing emails" defaultChecked />
+                <Checkbox label="Email digests" defaultChecked />
+                <RadioGroup aria-label="Plan">
+                  <Radio value="free" label="Free" name="pg-plan" defaultChecked />
+                  <Radio value="pro" label="Pro" name="pg-plan" />
+                </RadioGroup>
+                <Select defaultValue="pro">
+                  <SelectTrigger aria-label="Plan select" className="max-w-xs">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="free">Free</SelectItem>
+                    <SelectItem value="pro">Pro</SelectItem>
+                    <SelectItem value="team">Team</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid gap-6">
+                <div>
+                  <VariantLabel>Label + Input</VariantLabel>
+                  <div className="flex max-w-xs flex-col gap-1.5">
+                    <Label htmlFor="pg-nick">Nickname</Label>
+                    <Input id="pg-nick" defaultValue="memo" />
+                  </div>
+                </div>
+                <div>
+                  <VariantLabel>Tabs</VariantLabel>
+                  <Tabs defaultValue="a">
+                    <TabsList aria-label="Playground tabs">
+                      <TabsTrigger value="a">One</TabsTrigger>
+                      <TabsTrigger value="b">Two</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="a">
+                      <Text size="sm" className="text-[var(--color-ink2)]">
+                        First panel
+                      </Text>
+                    </TabsContent>
+                    <TabsContent value="b">
+                      <Text size="sm" className="text-[var(--color-ink2)]">
+                        Second panel
+                      </Text>
+                    </TabsContent>
+                  </Tabs>
+                </div>
+              </div>
+            </div>
+          </Section>
+
+          <Section
+            id="feedback"
+            title="Spinner · Avatar"
+            description="Loading feedback and user identity primitives."
+          >
+            <Stack direction="row" gap={6} wrap className="items-center">
+              <Stack direction="row" gap={3} className="items-center">
+                <Spinner size="sm" label="Small" />
+                <Spinner size="md" label="Loading" />
+                <Spinner size="lg" label="Large" />
+              </Stack>
+              <Stack direction="row" gap={3} className="items-center">
+                <Avatar size="sm" fallback="SM" />
+                <Avatar size="md" fallback="Memo UI" />
+                <Avatar size="lg" fallback="Guillaume Flambard" />
+              </Stack>
+            </Stack>
+          </Section>
+
+          <Section
+            id="overlays"
+            title="Overlays"
+            description="Modal, Tooltip, and Toast — Radix for behavior where noted; toast is custom."
+          >
+            <Stack direction="row" gap={3} wrap className="items-center">
+              <Modal
+                trigger={<Button size="sm">Open modal</Button>}
+                title="Archive?"
+                description="Moves the item to archive."
+              />
+              <Tooltip content="Scarce ocre punctuation">
+                <Button size="sm" variant="secondary">
+                  Tooltip
+                </Button>
+              </Tooltip>
+              <ToastTriggers />
+            </Stack>
+          </Section>
+
+          <Section
             id="typography"
             title="Text"
             description="Display sizes use Space Grotesk. Body sizes use Geist."
@@ -368,5 +516,7 @@ export default function Home() {
         </div>
       </main>
     </div>
+      </ToastProvider>
+    </TooltipProvider>
   );
 }

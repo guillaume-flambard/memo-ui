@@ -1,6 +1,8 @@
+"use client";
+
 /**
- * memo-ui Stack
- * Flexbox layout — gap via inline style so dynamic values always work
+ * memo-ui Stack — flexbox layout.
+ * Gap uses inline style so dynamic values always work
  * (Tailwind cannot see template-literal class names).
  */
 
@@ -8,11 +10,15 @@ import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Flex direction. `@default column` */
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  /** Align items. `@default start` */
   align?: 'start' | 'center' | 'end' | 'stretch';
+  /** Justify content. `@default start` */
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
-  /** Spacing in 4px units (gap={4} → 1rem) */
+  /** Spacing in 4px units (`gap={4}` → 1rem). `@default 0` */
   gap?: number;
+  /** Allow wrapping. `@default false` */
   wrap?: boolean;
 }
 
@@ -39,6 +45,7 @@ const justifyMap = {
   evenly: 'justify-evenly',
 } as const;
 
+/** One-dimensional flex stack. Prefer over ad-hoc `flex` + magic gaps. */
 export const Stack = forwardRef<HTMLDivElement, StackProps>(
   (
     {

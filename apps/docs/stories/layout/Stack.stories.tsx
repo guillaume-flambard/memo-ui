@@ -5,6 +5,14 @@ const meta = {
   title: 'Layout/Stack',
   component: Stack,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Flexbox stack. `gap` is in 4px units (`gap={4}` → 1rem) and applied via inline style so dynamic values always work.',
+      },
+    },
+  },
   argTypes: {
     direction: {
       control: 'select',

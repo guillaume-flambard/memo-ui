@@ -1,14 +1,23 @@
+"use client";
+
 /**
- * memo-ui Button
- * Primary action with ocre accent. Interactive motion < 300ms, transform/opacity only.
+ * memo-ui Button — primary action with scarce ocre accent.
+ * Interactive motion under 300ms; opacity/transform/filter only.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Visual style. `@default primary` */
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
+  /** Control height and padding. `@default md` */
   size?: 'sm' | 'md' | 'lg';
+  /**
+   * Shows a spinner, sets `aria-busy`, and disables the control.
+   * Accessible name is preserved via visually hidden children.
+   * `@default false`
+   */
   loading?: boolean;
 }
 
@@ -29,6 +38,9 @@ const buttonSizes = {
   lg: 'h-12 px-5 text-base',
 } as const;
 
+/**
+ * Clickable action control. Prefer `primary` for the single strongest CTA on a surface.
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -62,10 +74,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading ? (
-          <span
-            className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
-            aria-hidden
-          />
+          <>
+            <span
+              className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-current border-t-transparent"
+              aria-hidden
+            />
+            <span className="sr-only">{children}</span>
+          </>
         ) : (
           children
         )}

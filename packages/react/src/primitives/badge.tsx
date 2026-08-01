@@ -1,13 +1,17 @@
+"use client";
+
 /**
- * memo-ui Badge
- * Compact status / meta label. Ocre variant is scarce punctuation.
+ * memo-ui Badge — compact status / meta label.
+ * Ocre variant is scarce punctuation, not a default chrome color.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Color treatment. Use `ocre` sparingly. `@default default` */
   variant?: 'default' | 'ocre' | 'outline' | 'success' | 'warning' | 'error';
+  /** Compact (`sm`) or default (`md`) height. `@default md` */
   size?: 'sm' | 'md';
 }
 
@@ -31,6 +35,7 @@ const badgeSizes = {
   md: 'h-6 px-2 text-xs',
 } as const;
 
+/** Non-interactive label chip. Foreground colors use AA ink tokens. */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
   ({ variant = 'default', size = 'md', className, ...props }, ref) => {
     return (

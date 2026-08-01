@@ -1,11 +1,15 @@
+"use client";
+
 /**
- * memo-ui Card
+ * memo-ui Card — surface container with optional elevation.
+ * Compose with CardHeader, CardTitle, CardDescription, CardContent, CardFooter.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Border / shadow treatment. `@default default` */
   variant?: 'default' | 'outlined' | 'elevated';
 }
 
@@ -16,6 +20,7 @@ const cardVariants = {
     'border-[var(--color-line)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]',
 } as const;
 
+/** Bordered surface. Prefer for interactive groupings, not decorative chrome alone. */
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ variant = 'default', className, children, ...props }, ref) => {
     return (
@@ -38,6 +43,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = 'Card';
 
+/** Top block: title + description stack. */
 export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn('flex flex-col gap-1.5 px-5 pt-5', className)} {...props} />
@@ -45,6 +51,7 @@ export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
 );
 CardHeader.displayName = 'CardHeader';
 
+/** Card heading (`h3`). */
 export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
     <h3
@@ -59,6 +66,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTM
 );
 CardTitle.displayName = 'CardTitle';
 
+/** Supporting text under the title. */
 export const CardDescription = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
@@ -67,6 +75,7 @@ export const CardDescription = forwardRef<
 ));
 CardDescription.displayName = 'CardDescription';
 
+/** Main body padding. */
 export const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn('px-5 py-4', className)} {...props} />
@@ -74,6 +83,7 @@ export const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
 );
 CardContent.displayName = 'CardContent';
 
+/** Bottom actions row. */
 export const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn('flex items-center justify-end gap-2 px-5 pb-5', className)} {...props} />

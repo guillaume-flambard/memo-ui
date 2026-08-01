@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Getting started" />
+
+# Getting started
+
+## Install (monorepo)
+
+From the repo root:
+
+```bash
+pnpm install
+pnpm storybook          # http://localhost:6006
+```
+
+Playground sandbox:
+
+```bash
+pnpm --filter @memo-ui/playground exec next dev -p 3001
+```
+
+Unit tests:
+
+```bash
+pnpm --filter @memo-ui/react test
+```
+
+## Consume primitives
+
+In an app that depends on `@memo-ui/react` and `@memo-ui/core`:
+
+1. Import the core stylesheet (or your app CSS that pulls in `@memo-ui/core` tokens).
+2. Ensure Tailwind v4 can see component source via `@source` (required in monorepos).
+
+```css
+/* Example app CSS */
+@import "tailwindcss";
+@source "../../../packages/react/src";
+```
+
+3. Import components from the barrel:
+
+```tsx
+import { Button, Input, Stack, Text } from '@memo-ui/react';
+
+export function Example() {
+  return (
+    <Stack gap={4}>
+      <Text as="h1" size="2xl" weight="semibold">
+        Hello
+      </Text>
+      <Input aria-label="Email" type="email" placeholder="you@example.com" />
+      <Button variant="primary">Continue</Button>
+    </Stack>
+  );
+}
+```
+
+## Add a new primitive
+
+1. Implement in `packages/react/src/primitives/<name>.tsx` (tokens only, `forwardRef`, exported props interface + JSDoc).
+2. Export from `packages/react/src/index.ts`.
+3. Add Vitest under `packages/react/tests/components/` or `layout/`.
+4. Add CSF stories under `apps/docs/stories/components/` or `layout/` with `tags: ['autodocs']`.
+5. Restart Storybook if MCP manifests look stale.
+
+## Conventions
+
+- No hard-coded colors or magic spacing — CSS vars / theme classes only.
+- Interactive motion: opacity + transform, < 300ms, reduced-motion safe.
+- Prefer composition (`children` / Card slots) over rigid prop bags.

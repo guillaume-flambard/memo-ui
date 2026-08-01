@@ -13,6 +13,14 @@ const meta = {
   title: 'Components/Card',
   component: Card,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Surface container. Compose with CardHeader, CardTitle, CardDescription, CardContent, and CardFooter.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',

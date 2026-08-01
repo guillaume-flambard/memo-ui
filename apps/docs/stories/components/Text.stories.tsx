@@ -5,6 +5,14 @@ const meta = {
   title: 'Components/Text',
   component: Text,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Typographic primitive. Body uses Geist; from `xl` upward Space Grotesk (display). Choose `as` for document outline.',
+      },
+    },
+  },
   argTypes: {
     size: {
       control: 'select',

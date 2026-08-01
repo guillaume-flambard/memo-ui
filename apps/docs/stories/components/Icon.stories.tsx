@@ -13,6 +13,14 @@ const meta = {
   title: 'Components/Icon',
   component: Icon,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Size/color wrapper for SVG children (no icon set bundled). Set `label` for semantic icons; omit for decorative (`aria-hidden`).',
+      },
+    },
+  },
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg'], table: { defaultValue: { summary: 'md' } } },
     color: {

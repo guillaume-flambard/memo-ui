@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Accessibility" />
+
+# Accessibility
+
+Target **WCAG 2.2 AA**. Storybook **addon-a11y** runs axe against the story canvas.
+
+## How we audit
+
+- Scope: `parameters.a11y.context = '#storybook-root'` (see `.storybook/preview.ts`). This avoids false positives from Storybook chrome (panels, tabs).
+- Prefer the **Canvas** tab for a11y. Docs/MDX chrome is out of scope.
+- Some stories (Disabled, Loading) intentionally mute contrast via story-level rule overrides — document that in the story `parameters` when you do it.
+
+## Component contracts
+
+| Component | Requirement |
+| --- | --- |
+| **Button** | Visible focus ring; `loading` sets `aria-busy`, keeps name with `sr-only` children + decorative spinner |
+| **Input** | Always provide an accessible name (`aria-label`, `aria-labelledby`, or associated `<label>`); `variant="error"` sets `aria-invalid` |
+| **Icon** | With `label` → `role="img"` + `aria-label`; without → decorative (`aria-hidden`) |
+| **Divider** | Horizontal unlabeled → native `<hr>`; labeled → two `<hr>` + text (label is **not** inside `role=separator`); vertical → `role="separator"` + `aria-orientation="vertical"` |
+| **Badge / Text** | Rely on contrast tokens (`ink3`, `*-ink`); do not invent lighter grays |
+
+## Contrast tokens
+
+If axe reports `color-contrast` on brand colors, fix **tokens** (or use ink variants), not one-off hex in a story.
+
+Known AA-oriented choices:
+
+- `ink3` darkened for meta text on paper
+- `ocre-ink` / `success-ink` / `warning-ink` / `error-ink` for small text on soft washes
+- `ocre-soft` opaque wash instead of translucent ocre overlays that fail contrast
+
+## Reading the a11y panel
+
+- **0 Violations** with a green Pass badge = success.
+- Nested-interactive notes under a **Pass** group are not failures — do not “fix” them by breaking ARIA.
+
+## Keyboard & focus
+
+- Interactive controls must show `focus-visible` rings using `--color-ring` (or equivalent token).
+- Do not remove outlines without a visible replacement.
+- Prefer native elements (`button`, `input`, `hr`) over ARIA role soup when possible.

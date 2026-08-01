@@ -5,6 +5,14 @@ const meta = {
   title: 'Components/Badge',
   component: Badge,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Compact non-interactive status/meta label. Reserve `ocre` for scarce punctuation; foregrounds use AA ink tokens.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',

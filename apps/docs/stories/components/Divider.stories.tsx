@@ -5,6 +5,16 @@ const meta = {
   title: 'Components/Divider',
   component: Divider,
   tags: ['autodocs'],
+  parameters: {
+    // HTMLAttributes expose onClick — disable auto-actions so axe doesn't see a "clickable" rule wrapper
+    actions: { disable: true },
+    docs: {
+      description: {
+        component:
+          'Section break. Horizontal unlabeled uses native `<hr>`; labeled = two rules + text (not inside `role=separator`); vertical = separator + `aria-orientation`.',
+      },
+    },
+  },
   argTypes: {
     orientation: {
       control: 'select',

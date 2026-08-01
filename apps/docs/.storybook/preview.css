@@ -1,0 +1,5 @@
+@import '@memo-ui/core/tailwind.css';
+
+/* Tailwind v4 only auto-scans this app — register monorepo sources */
+@source '../../../packages/react/src';
+@source '../stories';

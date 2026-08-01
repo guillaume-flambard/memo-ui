@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Tokens" />
+
+# Design tokens
+
+Tokens live in **`packages/core`**: TypeScript maps under `src/tokens/` and the runtime theme in `tailwind.css` (`@theme` + component CSS variables).
+
+## Layers
+
+1. **Foundation** — raw palette, spacing scale, type, radius, shadows, motion durations.
+2. **Semantic** — roles like `--color-encre`, `--color-line`, `--color-error`.
+3. **Component** — `--badge-*`, `--divider-*`, `--icon-*`, etc.
+
+Naming pattern: `--{component}-{property}-{variant/state}`.
+
+## Color system
+
+| Role | Token (examples) | Intent |
+| --- | --- | --- |
+| Page | `--color-paper` | Canvas background |
+| Ink | `--color-encre`, `--color-ink2`, `--color-ink3` | Primary / secondary / meta text |
+| Lines | `--color-line`, `--color-line2` | Borders, dividers |
+| Accent | `--color-ocre`, `--color-ocre-deep` | Fills and pivots — use sparingly |
+| Accent text | `--color-ocre-ink` | Ocre as text/icon on paper or soft wash (AA) |
+| Soft wash | `--color-ocre-soft` | Opaque tint (axe-friendly) |
+| On accent | `--color-on-ocre` | Text on solid ocre |
+| Status | `--color-*-ink` on soft fills | Status labels that must pass contrast |
+
+**Rule:** never put fill ocre (`#F2870D`) as small text on paper. Use `ocre-ink` / semantic `*-ink` tokens.
+
+## Spacing
+
+4px base unit. Layout primitives accept **unit counts**:
+
+- `gap={4}` → `1rem` (16px)
+- `gap={2}` → `0.5rem`
+
+Stack and Grid apply gap via **inline style** so dynamic values are not lost to Tailwind’s static scan.
+
+## Typography
+
+| Role | Family |
+| --- | --- |
+| Display | Space Grotesk (`--font-display`) — Text from `xl` upward |
+| Body | Geist (`--font-sans`) |
+| Mono | Geist Mono |
+
+## Motion
+
+| Concern | Guidance |
+| --- | --- |
+| Properties | opacity, transform only |
+| Interactive | under 300ms (`--duration-micro`) |
+| Decorative / page | 400ms+ |
+| Reduced motion | no transform; duration 0 |
+
+## Consuming tokens in components
+
+```tsx
+className="bg-[var(--color-surface)] text-[var(--color-encre)] border-[var(--color-line)]"
+```
+
+Avoid arbitrary values like `p-[13px]` or hex in JSX.

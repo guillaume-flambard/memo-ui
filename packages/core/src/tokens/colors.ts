@@ -9,30 +9,34 @@ export const colors = {
   paper: '#FAFBFC', // Fond de page
   encre: '#0E1320', // Texte principal + fonds "encre"
   ink2: '#414B5E', // Texte secondaire
-  ink3: '#6B7488', // Texte tertiaire / méta
+  ink3: '#5C6578', // Tertiary / meta — AA on paper (~5.65:1)
 
   // Line colors
   line: '#E6E9EF',
   line2: '#D6DBE4',
 
   // Accent unique (Alan Chester style — rare punctuation)
-  ocre: '#F2870D', // The data, the pivot, the δ — scarce on purpose
-  ocreDeep: '#D9760A', // Bas du dégradé, hover
-  ocre2: '#FF6A2C', // Second point du dégradé
-  ocreInk: '#B05707', // Ocre en texte (kickers, liens, chevrons)
-  ocreSoft: 'rgba(242,135,13,.12)', // Wash ocre (fonds de badge)
-  onOcre: '#1B1204', // Texte sur aplat ocre
+  ocre: '#F2870D', // Fill / pivot — scarce on purpose
+  ocreDeep: '#D9760A', // Hover / gradient foot
+  ocre2: '#FF6A2C', // Second gradient stop
+  ocreInk: '#92400E', // Ocre as text/icon on paper or soft wash (WCAG AA)
+  ocreSoft: '#F9EDDF', // Opaque wash (axe-friendly; ~12% ocre on paper)
+  onOcre: '#1B1204', // Text on solid ocre
 
   // Surface colors
   surface: '#FFFFFF',
   surface2: '#F7F9FB',
 
-  // Semantic colors — prefer `success` for UI chrome; `ok` kept as reserved status alias
-  ok: '#48BB78', // Aligned with success (was #16a34a — near-duplicate removed)
+  // Semantic fills + AA ink on soft washes
+  ok: '#48BB78',
   success: '#48BB78',
+  successInk: '#166534',
   warning: '#ED8936',
+  warningInk: '#9A3412',
   error: '#E53E3E',
+  errorInk: '#B91C1C',
   info: '#3B82F6',
+  infoInk: '#1D4ED8',
 } as const;
 
 export type Colors = typeof colors;
@@ -55,7 +59,11 @@ export const colorCssVars = {
   '--color-surface2': colors.surface2,
   '--color-ok': colors.ok,
   '--color-success': colors.success,
+  '--color-success-ink': colors.successInk,
   '--color-warning': colors.warning,
+  '--color-warning-ink': colors.warningInk,
   '--color-error': colors.error,
+  '--color-error-ink': colors.errorInk,
   '--color-info': colors.info,
+  '--color-info-ink': colors.infoInk,
 } as const;

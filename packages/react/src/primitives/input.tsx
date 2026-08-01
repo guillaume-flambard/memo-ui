@@ -1,11 +1,17 @@
+"use client";
+
 /**
- * memo-ui Input
+ * memo-ui Input — single-line text field on paper/surface tokens.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Visual + a11y error treatment. When `error`, sets `aria-invalid`
+   * unless overridden. `@default default`
+   */
   variant?: 'default' | 'error';
 }
 
@@ -16,12 +22,26 @@ const inputVariants = {
     'border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-[var(--color-error)]',
 } as const;
 
+/**
+ * Native `<input>` with memo-ui chrome.
+ * Always provide an accessible name (`aria-label`, `aria-labelledby`, or `<label>`).
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant = 'default', className, type = 'text', ...props }, ref) => {
+  (
+    {
+      variant = 'default',
+      className,
+      type = 'text',
+      'aria-invalid': ariaInvalid,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <input
         ref={ref}
         type={type}
+        aria-invalid={ariaInvalid ?? (variant === 'error' ? true : undefined)}
         className={cn(
           'flex h-11 w-full rounded-xl border bg-[var(--color-surface)] px-3.5',
           'text-sm text-[var(--color-encre)] placeholder:text-[var(--color-ink3)]',

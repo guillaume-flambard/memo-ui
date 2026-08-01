@@ -9,26 +9,42 @@ const root = path.resolve(dirname, '../../..');
 
 const config: StorybookConfig = {
   stories: [
+    '../stories/docs/**/*.mdx',
     '../stories/components/**/*.stories.@(ts|tsx)',
     '../stories/layout/**/*.stories.@(ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-essentials',
+    '@storybook/addon-docs',
     '@storybook/addon-a11y',
-    '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-mcp',
+      options: {
+        endpoint: '/mcp',
+      },
+    },
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+  features: {
+    // @ts-expect-error preview AI manifests (Storybook 10.5+)
+    experimentalComponentsManifest: true,
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      tsconfigPath: path.join(dirname, '../tsconfig.json'),
+    },
+  },
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tailwindcss()],
       resolve: {
-          alias: {
-            '@memo-ui/react': path.join(root, 'packages/react/src'),
-            '@memo-ui/utils': path.join(root, 'packages/utils/src'),
-          },
+        alias: {
+          '@memo-ui/react': path.join(root, 'packages/react/src'),
+          '@memo-ui/utils': path.join(root, 'packages/utils/src'),
+        },
       },
     });
   },

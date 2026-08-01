@@ -1,17 +1,21 @@
+"use client";
+
 /**
- * memo-ui Grid
- * CSS Grid layout — gap in 4px units (same contract as Stack).
+ * memo-ui Grid — CSS Grid layout.
+ * Gap uses the same 4px-unit contract as Stack.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Column count 1–12 */
+  /** Column count 1–12. `@default 1` */
   columns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  /** Spacing in 4px units (gap={4} → 1rem) */
+  /** Spacing in 4px units (`gap={4}` → 1rem). `@default 4` */
   gap?: number;
+  /** Align items on the block axis. `@default stretch` */
   align?: 'start' | 'center' | 'end' | 'stretch';
+  /** Justify items on the inline axis. `@default stretch` */
   justify?: 'start' | 'center' | 'end' | 'stretch';
 }
 
@@ -44,6 +48,7 @@ const columnsMap = {
   12: 'grid-cols-12',
 } as const;
 
+/** Two-dimensional grid. Use Stack for simple linear layouts. */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(
   (
     {

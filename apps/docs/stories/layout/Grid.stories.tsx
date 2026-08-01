@@ -5,6 +5,14 @@ const meta = {
   title: 'Layout/Grid',
   component: Grid,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'CSS Grid with 1–12 columns. Same 4px-unit `gap` contract as Stack. Prefer Stack for simple linear layouts.',
+      },
+    },
+  },
   argTypes: {
     columns: {
       control: { type: 'number', min: 1, max: 12 },

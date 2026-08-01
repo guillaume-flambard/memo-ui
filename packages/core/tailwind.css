@@ -18,22 +18,26 @@
   --color-paper: #fafbfc;
   --color-encre: #0e1320;
   --color-ink2: #414b5e;
-  --color-ink3: #6b7488;
+  --color-ink3: #5c6578;
   --color-line: #e6e9ef;
   --color-line2: #d6dbe4;
   --color-ocre: #f2870d;
   --color-ocre-deep: #d9760a;
   --color-ocre2: #ff6a2c;
-  --color-ocre-ink: #b05707;
-  --color-ocre-soft: #f2870d1f;
+  --color-ocre-ink: #92400e;
+  --color-ocre-soft: #f9eddf;
   --color-on-ocre: #1b1204;
   --color-surface: #ffffff;
   --color-surface2: #f7f9fb;
-  --color-ok: #48bb78; /* aligned with success — was near-duplicate #16a34a */
+  --color-ok: #48bb78;
   --color-success: #48bb78;
+  --color-success-ink: #166534;
   --color-warning: #ed8936;
+  --color-warning-ink: #9a3412;
   --color-error: #e53e3e;
+  --color-error-ink: #b91c1c;
   --color-info: #3b82f6;
+  --color-info-ink: #1d4ed8;
 
   /* Radius */
   --radius-sm: 0.125rem;
@@ -83,25 +87,102 @@
   --badge-bg-outline: transparent;
   --badge-fg-outline: var(--color-encre);
   --badge-border-outline: var(--color-line2);
-  --badge-bg-success: color-mix(in srgb, var(--color-success) 14%, transparent);
-  --badge-fg-success: var(--color-success);
+  --badge-bg-success: color-mix(in srgb, var(--color-success) 14%, var(--color-paper));
+  --badge-fg-success: var(--color-success-ink);
   --badge-border-success: transparent;
-  --badge-bg-warning: color-mix(in srgb, var(--color-warning) 14%, transparent);
-  --badge-fg-warning: var(--color-warning);
+  --badge-bg-warning: color-mix(in srgb, var(--color-warning) 14%, var(--color-paper));
+  --badge-fg-warning: var(--color-warning-ink);
   --badge-border-warning: transparent;
-  --badge-bg-error: color-mix(in srgb, var(--color-error) 14%, transparent);
-  --badge-fg-error: var(--color-error);
+  --badge-bg-error: color-mix(in srgb, var(--color-error) 14%, var(--color-paper));
+  --badge-fg-error: var(--color-error-ink);
   --badge-border-error: transparent;
 
   /* Component — Divider */
   --divider-color-line: var(--color-line);
   --divider-color-line2: var(--color-line2);
-  --divider-label-color: var(--color-ink3);
+  --divider-label-color: var(--color-ink2);
 
   /* Component — Icon */
   --icon-color-encre: var(--color-encre);
   --icon-color-ink2: var(--color-ink2);
-  --icon-color-ocre: var(--color-ocre);
+  --icon-color-ocre: var(--color-ocre-ink);
+
+  /* Component — Checkbox */
+  --checkbox-bg: var(--color-surface);
+  --checkbox-border: var(--color-line2);
+  --checkbox-bg-checked: var(--color-ocre);
+  --checkbox-border-checked: var(--color-ocre);
+  --checkbox-fg-checked: var(--color-on-ocre);
+
+  /* Component — Radio */
+  --radio-bg: var(--color-surface);
+  --radio-border: var(--color-line2);
+  --radio-border-checked: var(--color-ocre);
+  --radio-dot: var(--color-ocre);
+
+  /* Component — Tooltip */
+  --tooltip-bg: var(--color-encre);
+  --tooltip-fg: var(--color-paper);
+  --tooltip-border: transparent;
+
+  /* Component — Toast */
+  --toast-bg: var(--color-surface);
+  --toast-fg: var(--color-encre);
+  --toast-border: var(--color-line);
+
+  /* Component — Modal */
+  --modal-bg: var(--color-surface);
+  --modal-border: var(--color-line);
+  --modal-overlay: color-mix(in srgb, var(--color-encre) 45%, transparent);
+
+  /* Component — Tabs */
+  --tabs-list-bg: var(--color-surface2);
+  --tabs-list-border: var(--color-line);
+  --tabs-trigger-fg: var(--color-ink2);
+  --tabs-trigger-bg-active: var(--color-surface);
+  --tabs-trigger-fg-active: var(--color-encre);
+
+  /* Component — Select */
+  --select-trigger-bg: var(--color-surface);
+  --select-trigger-border: var(--color-line);
+  --select-trigger-fg: var(--color-encre);
+  --select-content-bg: var(--color-surface);
+  --select-content-border: var(--color-line);
+  --select-item-fg: var(--color-encre);
+  --select-item-bg-highlighted: var(--color-ocre-soft);
+  --select-item-fg-highlighted: var(--color-encre);
+
+  /* Component — Label */
+  --label-fg: var(--color-encre);
+  --label-fg-disabled: var(--color-ink3);
+  --label-required: var(--color-error);
+
+  /* Component — Textarea (mirrors Input chrome) */
+  --textarea-bg: var(--color-surface);
+  --textarea-border: var(--color-line);
+  --textarea-border-focus: var(--color-ocre);
+  --textarea-border-error: var(--color-error);
+  --textarea-fg: var(--color-encre);
+  --textarea-placeholder: var(--color-ink3);
+
+  /* Component — Switch */
+  --switch-track: var(--color-line2);
+  --switch-track-checked: var(--color-ocre);
+  --switch-thumb: var(--color-surface);
+  --switch-border: var(--color-line2);
+
+  /* Component — Spinner */
+  --spinner-track: var(--color-line2);
+  --spinner-indicator: var(--color-ocre);
+
+  /* Component — Avatar */
+  --avatar-bg: var(--color-surface2);
+  --avatar-fg: var(--color-ink2);
+  --avatar-border: var(--color-line);
+
+  /* Component — FormField */
+  --form-field-hint: var(--color-ink3);
+  --form-field-error: var(--color-error-ink);
 }
 
 @layer base {
@@ -164,6 +245,46 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 0.5rem));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 

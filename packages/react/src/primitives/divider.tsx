@@ -1,15 +1,23 @@
+"use client";
+
 /**
  * memo-ui Divider
- * Horizontal or vertical rule with optional centered label.
+ * Horizontal: native `<hr>`. Vertical: `role=separator` + `aria-orientation`.
+ * Labeled: two `<hr>` + text — never put label text inside `role=separator` (ARIA).
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
-export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DividerProps extends Omit<React.HTMLAttributes<HTMLElement>, 'children'> {
+  /** Axis. Vertical uses an explicit ARIA separator. `@default horizontal` */
   orientation?: 'horizontal' | 'vertical';
+  /** Border token strength. `@default line` */
   tone?: 'line' | 'line2';
-  /** Optional label (horizontal only) */
+  /**
+   * Optional label (horizontal only). Rendered between two rules —
+   * not inside a separator role.
+   */
   label?: React.ReactNode;
 }
 
@@ -18,14 +26,16 @@ const toneMap = {
   line2: 'border-[var(--divider-color-line2)]',
 } as const;
 
-export const Divider = forwardRef<HTMLDivElement, DividerProps>(
+const ruleClass = 'm-0 border-0 border-t bg-transparent';
+
+/** Visual break between sections. Prefer unlabeled `<hr>` when no copy is needed. */
+export const Divider = forwardRef<HTMLElement, DividerProps>(
   (
     {
       orientation = 'horizontal',
       tone = 'line',
       label,
       className,
-      role = 'separator',
       ...props
     },
     ref
@@ -33,11 +43,11 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     if (orientation === 'vertical') {
       return (
         <div
-          ref={ref}
-          role={role}
+          ref={ref as React.Ref<HTMLDivElement>}
+          role="separator"
           aria-orientation="vertical"
           className={cn(
-            'min-h-[1em] self-stretch border-l',
+            'min-h-[1em] self-stretch border-0 border-l',
             toneMap[tone],
             className
           )}
@@ -49,27 +59,23 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     if (label) {
       return (
         <div
-          ref={ref}
-          role={role}
-          aria-orientation="horizontal"
+          ref={ref as React.Ref<HTMLDivElement>}
           className={cn('flex w-full items-center gap-3', className)}
           {...props}
         >
-          <span className={cn('h-px flex-1 border-t', toneMap[tone])} />
-          <span className="shrink-0 text-xs font-medium text-[var(--divider-label-color)]">
+          <hr className={cn(ruleClass, 'h-px flex-1', toneMap[tone])} />
+          <span className="shrink-0 text-xs font-medium leading-none text-[var(--divider-label-color)]">
             {label}
           </span>
-          <span className={cn('h-px flex-1 border-t', toneMap[tone])} />
+          <hr className={cn(ruleClass, 'h-px flex-1', toneMap[tone])} />
         </div>
       );
     }
 
     return (
-      <div
-        ref={ref}
-        role={role}
-        aria-orientation="horizontal"
-        className={cn('w-full border-t', toneMap[tone], className)}
+      <hr
+        ref={ref as React.Ref<HTMLHRElement>}
+        className={cn(ruleClass, 'w-full', toneMap[tone], className)}
         {...props}
       />
     );

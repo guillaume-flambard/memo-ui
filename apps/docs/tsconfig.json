@@ -12,7 +12,18 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@memo-ui/react": ["./../../packages/react/src/index.ts"],
+      "@memo-ui/react/*": ["./../../packages/react/src/*"],
+      "@memo-ui/utils": ["./../../packages/utils/src/index.ts"],
+      "@memo-ui/core": ["./../../packages/core/src/index.ts"]
+    }
   },
-  "include": [".storybook/**/*", "stories/**/*"]
+  "include": [
+    ".storybook/**/*",
+    "stories/**/*",
+    "../../packages/react/src/**/*",
+    "../../packages/utils/src/**/*"
+  ]
 }

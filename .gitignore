@@ -17,7 +17,10 @@ apps/docs/storybook-static
 # IDE
 .vscode
 .idea
-.cursor
+.cursor/*
+!.cursor/mcp.json
+!.cursor/agents/
+!.cursor/agents/**
 
 # OS
 .DS_Store

@@ -1,15 +1,22 @@
+"use client";
+
 /**
- * memo-ui Icon
- * Size/color wrapper for SVG children — no icon set bundled.
+ * memo-ui Icon — size/color wrapper for SVG children.
+ * No icon set is bundled; pass your own SVG.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Box size. `@default md` */
   size?: 'sm' | 'md' | 'lg';
+  /** Tokenized color. `ocre` maps to AA `ocre-ink`. `@default inherit` */
   color?: 'inherit' | 'encre' | 'ink2' | 'ocre';
-  /** Accessible name — when set, icon is semantic (role=img). Otherwise decorative. */
+  /**
+   * Accessible name. When set, the icon is semantic (`role="img"`).
+   * When omitted, the icon is decorative (`aria-hidden`).
+   */
   label?: string;
 }
 
@@ -26,6 +33,7 @@ const iconColors = {
   ocre: 'text-[var(--icon-color-ocre)]',
 } as const;
 
+/** Wraps an SVG. Always set `label` when the icon conveys meaning alone. */
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(
   (
     {

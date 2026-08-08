@@ -12,11 +12,14 @@
     "format:check": "pnpm --filter @memo-ui/react format:check"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "eslint": "^10.8.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "turbo": "2.10.3",
     "typescript": "6.0.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "typescript-eslint": "^8.66.0"
   }
 }

@@ -79,7 +79,7 @@ const toneBorder: Record<ToastTone, string> = {
   error: 'border-[var(--color-error-ink)]',
 };
 
-export interface ToastViewportProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ToastViewportProps = React.HTMLAttributes<HTMLDivElement>;
 
 /** Renders active toasts. Place once under `ToastProvider`. */
 export const ToastViewport = forwardRef<HTMLDivElement, ToastViewportProps>(

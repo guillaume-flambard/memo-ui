@@ -30,7 +30,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
 );
 Breadcrumb.displayName = 'Breadcrumb';
 
-export interface BreadcrumbListProps extends React.OlHTMLAttributes<HTMLOListElement> {}
+export type BreadcrumbListProps = React.OlHTMLAttributes<HTMLOListElement>;
 
 /** Ordered list of breadcrumb items. */
 export const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
@@ -47,7 +47,7 @@ export const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
 );
 BreadcrumbList.displayName = 'BreadcrumbList';
 
-export interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {}
+export type BreadcrumbItemProps = React.LiHTMLAttributes<HTMLLIElement>;
 
 /** Single crumb wrapper. */
 export const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbItemProps>(
@@ -57,7 +57,7 @@ export const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbItemProps>(
 );
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-export interface BreadcrumbLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+export type BreadcrumbLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 /** Navigable crumb link. */
 export const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
@@ -76,7 +76,7 @@ export const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>
 );
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
-export interface BreadcrumbPageProps extends React.HTMLAttributes<HTMLSpanElement> {}
+export type BreadcrumbPageProps = React.HTMLAttributes<HTMLSpanElement>;
 
 /** Current page crumb (non-interactive). Sets `aria-current="page"`. */
 export const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
@@ -91,7 +91,7 @@ export const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
 );
 BreadcrumbPage.displayName = 'BreadcrumbPage';
 
-export interface BreadcrumbSeparatorProps extends React.HTMLAttributes<HTMLSpanElement> {}
+export type BreadcrumbSeparatorProps = React.HTMLAttributes<HTMLSpanElement>;
 
 /** Visual separator between crumbs (hidden from AT). */
 export const BreadcrumbSeparator = forwardRef<HTMLSpanElement, BreadcrumbSeparatorProps>(

@@ -10,7 +10,7 @@ COPY packages/react/package.json packages/react/
 COPY packages/utils/package.json packages/utils/
 RUN pnpm install --frozen-lockfile --config.onlyBuiltDependencies="[rolldown,esbuild,@rolldown/binding-linux-x64-gnu]" --config.strict-dep-builds=false
 COPY . .
-RUN pnpm --filter @memo-ui/playground build
+RUN pnpm --filter @memo-ui/utils build && pnpm --filter @memo-ui/core build && pnpm --filter @memo-ui/motion build && pnpm --filter @memo-ui/react build && pnpm --filter @memo-ui/playground build
 
 FROM node:24-bookworm-slim AS run
 WORKDIR /app

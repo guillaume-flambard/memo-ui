@@ -4,7 +4,12 @@ WORKDIR /app
 RUN npm i -g pnpm@10.14.0
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
 COPY apps/playground/package.json apps/playground/
-COPY packages/react/package.json packages/react/ 2>/dev/null || true
+COPY packages/brand/package.json packages/brand/
+COPY packages/core/package.json packages/core/
+COPY packages/motion/package.json packages/motion/
+COPY packages/react/package.json packages/react/
+COPY packages/typography/package.json packages/typography/
+COPY packages/utils/package.json packages/utils/
 RUN pnpm install --frozen-lockfile --config.onlyBuiltDependencies="[rolldown,esbuild,@rolldown/binding-linux-x64-gnu]" --config.strict-dep-builds=false
 COPY . .
 RUN pnpm --filter @memo-ui/playground build

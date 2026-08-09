@@ -150,7 +150,7 @@ export default function Home() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="rounded-lg px-2.5 py-1.5 text-sm text-[var(--color-ink2)] transition-colors duration-150 hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-ink)]"
+                className="rounded-none px-2.5 py-1.5 text-sm text-[var(--color-ink2)] transition-colors duration-150 hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-ink)]"
               >
                 {section.label}
               </a>
@@ -578,7 +578,7 @@ export default function Home() {
               ].map((token) => (
                 <div
                   key={token.name}
-                  className="flex h-28 flex-col justify-between rounded-2xl p-4"
+                  className="flex h-28 flex-col justify-between rounded-none p-4"
                   style={{
                     background: token.swatch,
                     color: token.ink,

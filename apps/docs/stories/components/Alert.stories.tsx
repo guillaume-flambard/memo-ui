@@ -40,7 +40,7 @@ export const Tones: Story = {
         Neutral notice.
       </Alert>
       <Alert tone="info" title="Info">
-        Scarce ocre wash for informational callouts.
+        Scarce accent wash for informational callouts.
       </Alert>
       <Alert tone="success" title="Success">
         Saved successfully.

@@ -25,7 +25,7 @@ const meta = {
     size: { control: 'select', options: ['sm', 'md', 'lg'], table: { defaultValue: { summary: 'md' } } },
     color: {
       control: 'select',
-      options: ['inherit', 'encre', 'ink2', 'ocre'],
+      options: ['inherit', 'encre', 'ink2', 'accent'],
       table: { defaultValue: { summary: 'inherit' } },
     },
     label: { control: 'text' },
@@ -45,7 +45,7 @@ export const Default: Story = {
 };
 
 export const WithLabel: Story = {
-  args: { label: 'Highlights', color: 'ocre' },
+  args: { label: 'Highlights', color: 'accent' },
   render: (args) => (
     <Icon {...args}>
       <SparkleIcon />
@@ -62,7 +62,7 @@ export const AllVariants: Story = {
       <Icon size="md" color="encre">
         <SparkleIcon />
       </Icon>
-      <Icon size="lg" color="ocre" label="Ocre accent">
+      <Icon size="lg" color="accent" label="Accent accent">
         <SparkleIcon />
       </Icon>
     </div>

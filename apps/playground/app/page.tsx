@@ -150,7 +150,7 @@ export default function Home() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="rounded-lg px-2.5 py-1.5 text-sm text-[var(--color-ink2)] transition-colors duration-150 hover:bg-[var(--color-ocre-soft)] hover:text-[var(--color-ocre-ink)]"
+                className="rounded-lg px-2.5 py-1.5 text-sm text-[var(--color-ink2)] transition-colors duration-150 hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-ink)]"
               >
                 {section.label}
               </a>
@@ -161,14 +161,14 @@ export default function Home() {
 
       <main className="mx-auto max-w-6xl px-6 py-14 lg:px-10 lg:py-20">
         <div className="mb-16 max-w-2xl">
-          <p className="mb-4 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] text-[var(--color-ocre-ink)]">
+          <p className="mb-4 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] text-[var(--color-accent-ink)]">
             Design system
           </p>
           <Text as="h1" size="5xl" weight="bold" className="leading-[1.05]">
             Precision with warmth
           </Text>
           <Text size="lg" className="mt-5 text-[var(--color-ink2)]">
-            Paper, ink, and a single ocre accent. Components for shipping fast without looking generic.
+            Paper, ink, and a single accent accent. Components for shipping fast without looking generic.
           </Text>
           <Stack direction="row" gap={3} wrap className="mt-8 items-center">
             <Button variant="primary" size="md">
@@ -259,7 +259,7 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              <Card variant="elevated">
+              <Card variant="surface">
                 <CardHeader>
                   <CardTitle>Elevated</CardTitle>
                   <CardDescription>Soft depth for focus.</CardDescription>
@@ -281,7 +281,7 @@ export default function Home() {
           <Section
             id="inputs"
             title="Input"
-            description="Clear focus ring in ocre. Error state uses semantic destructive color."
+            description="Clear focus ring in accent. Error state uses semantic destructive color."
           >
             <div className="grid max-w-md gap-4">
               <div>
@@ -453,7 +453,7 @@ export default function Home() {
                 title="Archive?"
                 description="Moves the item to archive."
               />
-              <Tooltip content="Scarce ocre punctuation">
+              <Tooltip content="Scarce accent punctuation">
                 <Button size="sm" variant="secondary">
                   Tooltip
                 </Button>
@@ -491,7 +491,7 @@ export default function Home() {
               <Text size="xs" className="text-[var(--color-ink3)]">
                 Extra small for dense UI chrome.
               </Text>
-              <p className="mt-2 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.18em] text-[var(--color-ocre-ink)]">
+              <p className="mt-2 font-[family-name:var(--font-mono)] text-sm uppercase tracking-[0.18em] text-[var(--color-accent-ink)]">
                 Mono kickers
               </p>
             </div>
@@ -512,7 +512,7 @@ export default function Home() {
                   <Icon size="md" color="encre">
                     <SparkleIcon />
                   </Icon>
-                  <Icon size="lg" color="ocre" label="Accent">
+                  <Icon size="lg" color="accent" label="Accent">
                     <SparkleIcon />
                   </Icon>
                 </Stack>
@@ -547,11 +547,11 @@ export default function Home() {
           <Section
             id="badge"
             title="Badge"
-            description="Compact labels. Ocre is punctuation — use sparingly."
+            description="Compact labels. Accent is punctuation — use sparingly."
           >
             <Stack direction="row" gap={2} wrap className="items-center">
               <Badge>Default</Badge>
-              <Badge variant="ocre">Pivot</Badge>
+              <Badge variant="accent">Pivot</Badge>
               <Badge variant="outline">Outline</Badge>
               <Badge variant="success">Live</Badge>
               <Badge variant="warning">Soon</Badge>
@@ -573,8 +573,8 @@ export default function Home() {
                 { name: 'Ink 2', swatch: 'var(--color-ink2)', ink: 'var(--color-surface)' },
                 { name: 'Ink 3', swatch: 'var(--color-ink3)', ink: 'var(--color-surface)' },
                 { name: 'Line', swatch: 'var(--color-line)', ink: 'var(--color-encre)', border: true },
-                { name: 'Ocre', swatch: 'var(--color-ocre)', ink: 'var(--color-on-ocre)' },
-                { name: 'Ocre ink', swatch: 'var(--color-ocre-ink)', ink: 'var(--color-surface)' },
+                { name: 'Accent', swatch: 'var(--color-accent)', ink: 'var(--color-on-accent)' },
+                { name: 'Accent ink', swatch: 'var(--color-accent-ink)', ink: 'var(--color-surface)' },
               ].map((token) => (
                 <div
                   key={token.name}

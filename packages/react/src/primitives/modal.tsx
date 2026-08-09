@@ -83,7 +83,7 @@ export const ModalContent = forwardRef<
       {...(description ? {} : { 'aria-describedby': undefined })}
       className={cn(
         'fixed left-1/2 top-1/2 z-50 w-[min(100%-2rem,28rem)] -translate-x-1/2 -translate-y-1/2',
-        'rounded-2xl border border-[var(--modal-border)] bg-[var(--modal-bg)] p-5 shadow-[var(--shadow-hover)]',
+        'rounded-none border border-[var(--modal-border)] bg-[var(--modal-bg)] p-5',
         'focus:outline-none',
         'data-[state=open]:animate-[modal-in_var(--duration-micro)_var(--ease-out-expo)]',
         className

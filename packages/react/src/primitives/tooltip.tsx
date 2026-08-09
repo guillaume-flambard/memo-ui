@@ -52,9 +52,8 @@ export function Tooltip({
           side={side}
           sideOffset={6}
           className={cn(
-            'z-50 max-w-xs rounded-lg border px-2.5 py-1.5 text-xs font-medium',
+            'z-50 max-w-xs rounded-none border px-2.5 py-1.5 text-xs font-medium',
             'border-[var(--tooltip-border)] bg-[var(--tooltip-bg)] text-[var(--tooltip-fg)]',
-            'shadow-[var(--shadow-card)]',
             'data-[state=delayed-open]:animate-[fade-in_var(--duration-micro)_var(--ease-out-expo)]',
             'data-[state=closed]:animate-[fade-out_var(--duration-micro)_var(--ease-out-expo)]',
             className
@@ -79,9 +78,8 @@ export const TooltipContent = forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      'z-50 max-w-xs rounded-lg border px-2.5 py-1.5 text-xs font-medium',
+      'z-50 max-w-xs rounded-none border px-2.5 py-1.5 text-xs font-medium',
       'border-[var(--tooltip-border)] bg-[var(--tooltip-bg)] text-[var(--tooltip-fg)]',
-      'shadow-[var(--shadow-card)]',
       className
     )}
     {...props}

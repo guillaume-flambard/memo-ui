@@ -119,7 +119,7 @@ function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void
       role="status"
       aria-live="polite"
       className={cn(
-        'pointer-events-auto rounded-xl border bg-[var(--toast-bg)] px-4 py-3 shadow-[var(--shadow-card)]',
+        'pointer-events-auto rounded-none border bg-[var(--toast-bg)] px-4 py-3',
         'text-[var(--toast-fg)]',
         'animate-[toast-in_var(--duration-micro)_var(--ease-out-expo)]',
         toneBorder[item.tone ?? 'default']
@@ -137,7 +137,7 @@ function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void
         <button
           type="button"
           onClick={onDismiss}
-          className="shrink-0 rounded-md px-1.5 text-xs text-[var(--color-ink3)] transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]"
+          className="shrink-0 rounded-none px-1.5 text-xs text-[var(--color-ink3)] transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]"
           aria-label="Dismiss"
         >
           ✕

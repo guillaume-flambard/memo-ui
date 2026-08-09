@@ -9,14 +9,14 @@ const meta = {
     docs: {
       description: {
         component:
-          'Compact non-interactive status/meta label. Reserve `ocre` for scarce punctuation; foregrounds use AA ink tokens.',
+          'Compact non-interactive status/meta label. Reserve `accent` for scarce punctuation; foregrounds use AA ink tokens.',
       },
     },
   },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'ocre', 'outline', 'success', 'warning', 'error'],
+      options: ['default', 'accent', 'outline', 'success', 'warning', 'error'],
       table: { defaultValue: { summary: 'default' } },
     },
     size: {
@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const Ocre: Story = { args: { variant: 'ocre', children: 'Pivot' } };
+export const Accent: Story = { args: { variant: 'accent', children: 'Pivot' } };
 export const Outline: Story = { args: { variant: 'outline' } };
 export const Success: Story = { args: { variant: 'success', children: 'Live' } };
 export const Warning: Story = { args: { variant: 'warning', children: 'Soon' } };
@@ -48,7 +48,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-2">
       <Badge>Default</Badge>
-      <Badge variant="ocre">Ocre</Badge>
+      <Badge variant="accent">Accent</Badge>
       <Badge variant="outline">Outline</Badge>
       <Badge variant="success">Success</Badge>
       <Badge variant="warning">Warning</Badge>

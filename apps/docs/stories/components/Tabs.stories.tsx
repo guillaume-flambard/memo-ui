@@ -28,7 +28,7 @@ export const Default: Story = {
         <TabsTrigger value="a11y">A11y</TabsTrigger>
       </TabsList>
       <TabsContent value="overview">
-        <Text size="sm">Paper, ink, scarce ocre.</Text>
+        <Text size="sm">Paper, ink, scarce accent.</Text>
       </TabsContent>
       <TabsContent value="tokens">
         <Text size="sm">Foundation → Semantic → Component.</Text>

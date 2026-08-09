@@ -40,7 +40,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
           'inline font-medium text-[var(--link-fg)]',
           'transition-[color,opacity,text-decoration-color] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
           'hover:text-[var(--link-fg-hover)]',
-          'focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
+          'focus:outline-none focus-visible:rounded-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
           underlineStyles[underline],
           className
         )}

@@ -1,18 +1,19 @@
 /**
  * memo-ui Border Radius Tokens
- * Inspired by largo-ai: 8, 12, 16, 999 (pill)
+ * Based on the Memo Labs portfolio: flat. Structure comes from 1px hairlines,
+ * not corners. `full` stays available for pill badges/avatars only.
  */
 
 export const radius = {
   none: '0',
-  sm: '0.125rem', // 2px
-  base: '0.25rem', // 4px
-  md: '0.375rem', // 6px
-  lg: '0.5rem', // 8px
-  xl: '0.75rem', // 12px
-  '2xl': '1rem', // 16px
-  '3xl': '1.5rem', // 24px
-  full: '9999px', // Fully rounded
+  sm: '0', // 0px
+  base: '0', // 0px
+  md: '0', // 0px
+  lg: '0', // 0px
+  xl: '0', // 0px
+  '2xl': '0', // 0px
+  '3xl': '0', // 0px
+  full: '9999px', // Pill (badges, avatars)
 } as const;
 
 export type Radius = typeof radius;

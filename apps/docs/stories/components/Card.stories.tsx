@@ -24,7 +24,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'outlined', 'elevated'],
+      options: ['default', 'outlined', 'surface'],
       table: { defaultValue: { summary: 'default' } },
     },
   },
@@ -34,7 +34,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function DemoCard({ variant }: { variant?: 'default' | 'outlined' | 'elevated' }) {
+function DemoCard({ variant }: { variant?: 'default' | 'outlined' | 'surface' }) {
   return (
     <Card variant={variant} className="max-w-sm">
       <CardHeader>
@@ -63,7 +63,7 @@ export const Outlined: Story = {
 };
 
 export const Elevated: Story = {
-  args: { variant: 'elevated' },
+  args: { variant: 'surface' },
   render: (args) => <DemoCard variant={args.variant} />,
 };
 
@@ -72,7 +72,7 @@ export const AllVariants: Story = {
     <div className="grid gap-4 sm:grid-cols-3">
       <DemoCard variant="default" />
       <DemoCard variant="outlined" />
-      <DemoCard variant="elevated" />
+      <DemoCard variant="surface" />
     </div>
   ),
 };

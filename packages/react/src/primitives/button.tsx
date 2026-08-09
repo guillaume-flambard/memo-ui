@@ -1,8 +1,8 @@
 "use client";
 
 /**
- * memo-ui Button — primary action with scarce ocre accent.
- * Interactive motion under 300ms; opacity/transform/filter only.
+ * memo-ui Button — primary action with scarce accent fill. Flat (no radius),
+ * motion under 300ms on colour/border only.
  */
 
 import React, { forwardRef } from 'react';
@@ -23,13 +23,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const buttonVariants = {
   primary:
-    'bg-[var(--color-ocre)] text-[var(--color-on-ocre)] border-transparent hover:brightness-[1.05] active:brightness-[0.97]',
+    'bg-[var(--color-accent)] text-[var(--color-on-accent)] border-transparent hover:bg-[var(--color-accent-deep)]',
   secondary:
     'bg-[var(--color-surface)] text-[var(--color-encre)] border-[var(--color-line)] hover:border-[var(--color-line2)] hover:bg-[var(--color-surface2)]',
   ghost:
-    'bg-transparent text-[var(--color-encre)] border-transparent hover:bg-[var(--color-ocre-soft)]',
+    'bg-transparent text-[var(--color-encre)] border-transparent hover:bg-[var(--color-accent-soft)]',
   outline:
-    'bg-transparent text-[var(--color-encre)] border-[var(--color-line)] hover:border-[var(--color-ocre)] hover:text-[var(--color-ocre-ink)]',
+    'bg-transparent text-[var(--color-encre)] border-[var(--color-line)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent-ink)]',
 } as const;
 
 const buttonSizes = {
@@ -61,11 +61,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={loading || undefined}
         className={cn(
           'inline-flex items-center justify-center gap-2',
-          'rounded-xl border font-medium',
-          'transition-[transform,opacity,filter,background-color,border-color,color] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
+          'border font-medium',
+          'transition-[background-color,border-color,color] duration-[var(--duration-normal)] ease-in-out',
           'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]',
           'disabled:pointer-events-none disabled:opacity-50',
-          'active:scale-[0.98]',
           'aria-busy:pointer-events-none',
           buttonVariants[variant],
           buttonSizes[size],

@@ -1,6 +1,6 @@
 # @memo-ui
 
-Personal design system: paper/ink + scarce ocre, Space Grotesk + Geist. Built to ship fast with a clear visual voice.
+Personal design system in the Memo Labs portfolio/lab language: warm paper + ink, one condensed grotesque (Oswald), flat (no radius, no shadow). Built to ship fast with a clear visual voice.
 
 **"The engineer who gets design"** — system rigor meeting human warmth.
 
@@ -43,7 +43,7 @@ pnpm --filter @memo-ui/react test
 │  ├─ react/          # Primitives + Vitest suite
 │  ├─ utils/          # cn(), composeRefs, keyboard helpers
 │  ├─ motion/         # GSAP + Motion primitives
-│  ├─ typography/     # Space Grotesk / Geist
+│  ├─ typography/     # Oswald (display + body) / Geist Mono
 │  └─ brand/          # Logo, voice layer
 └─ agent/             # Voice/messaging for AI agents
 ```
@@ -62,8 +62,8 @@ pnpm --filter @memo-ui/react test
 Three levels: **Foundation → Semantic → Component**.
 
 - Source of truth: `packages/core/src/tokens/` + `packages/core/tailwind.css`
-- Brand: paper `#FAFBFC` + encre `#0E1320`, accent ocre used sparingly
-- Text/icon on ocre washes: use `ocre-ink` / `*-ink` tokens (WCAG AA), not fill ocre alone
+- Brand: paper `#FAF9F7` + encre `#16130F`, accent `#AD4C16` used sparingly
+- Text/icon on accent washes: use `accent-ink` / `*-ink` tokens (WCAG AA), not fill accent alone
 - Spacing: 4px base (`gap={4}` on Stack/Grid → `1rem`)
 - Motion: opacity/transform only; interactive < 300ms; respect reduced motion
 
@@ -79,7 +79,7 @@ Never hardcode colors or one-off spacing. Prefer CSS vars / mapped Tailwind clas
 | Input | `primitives/input.tsx` | `variant="error"` sets `aria-invalid`; stories need `aria-label` (or label) |
 | Text | `primitives/text.tsx` | display font from `xl` up |
 | Icon | `primitives/icon.tsx` | wrapper only; `label` → semantic, else decorative |
-| Badge | `primitives/badge.tsx` | ocre is scarce punctuation |
+| Badge | `primitives/badge.tsx` | accent is scarce punctuation |
 | Divider | `primitives/divider.tsx` | horizontal `<hr>`; labeled = two rules + text; vertical = `role=separator` |
 | Card | `primitives/card.tsx` | Header / Title / Description / Content / Footer |
 | Stack | `primitives/stack.tsx` | flex; `gap` via inline style (dynamic Tailwind-safe) |

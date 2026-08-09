@@ -11,8 +11,8 @@ import { cn } from '@memo-ui/utils';
 export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Box size. `@default md` */
   size?: 'sm' | 'md' | 'lg';
-  /** Tokenized color. `ocre` maps to AA `ocre-ink`. `@default inherit` */
-  color?: 'inherit' | 'encre' | 'ink2' | 'ocre';
+  /** Tokenized color. `accent` maps to AA `accent-ink`. `@default inherit` */
+  color?: 'inherit' | 'encre' | 'ink2' | 'accent';
   /**
    * Accessible name. When set, the icon is semantic (`role="img"`).
    * When omitted, the icon is decorative (`aria-hidden`).
@@ -30,7 +30,7 @@ const iconColors = {
   inherit: 'text-current',
   encre: 'text-[var(--icon-color-encre)]',
   ink2: 'text-[var(--icon-color-ink2)]',
-  ocre: 'text-[var(--icon-color-ocre)]',
+  accent: 'text-[var(--icon-color-accent)]',
 } as const;
 
 /** Wraps an SVG. Always set `label` when the icon conveys meaning alone. */

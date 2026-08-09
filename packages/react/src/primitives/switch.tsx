@@ -86,7 +86,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           aria-hidden
           className={cn(
             'pointer-events-none absolute left-0.5 top-1/2 -translate-y-1/2 rounded-full',
-            'bg-[var(--switch-thumb)] shadow-sm',
+            'bg-[var(--switch-thumb)]',
             'transition-transform duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
             'peer-disabled:opacity-50',
             thumbSize[size]

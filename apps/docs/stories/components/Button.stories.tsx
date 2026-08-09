@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Primary action control. Use `primary` for the strongest CTA; keep ocre scarce. `loading` preserves the accessible name via `sr-only` children.',
+          'Primary action control. Use `primary` for the strongest CTA; keep accent scarce. `loading` preserves the accessible name via `sr-only` children.',
       },
     },
   },

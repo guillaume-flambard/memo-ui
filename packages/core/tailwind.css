@@ -7,57 +7,57 @@
 
 @theme {
   /* Typography */
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Oswald", "Archivo Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Oswald", "Archivo Narrow", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
   /* Spacing */
   --spacing-unit: 0.25rem;
 
   /* Brand colors */
-  --color-paper: #fafbfc;
-  --color-encre: #0e1320;
-  --color-ink2: #414b5e;
-  --color-ink3: #5c6578;
-  --color-line: #e6e9ef;
-  --color-line2: #d6dbe4;
-  --color-ocre: #f2870d;
-  --color-ocre-deep: #d9760a;
-  --color-ocre2: #ff6a2c;
-  --color-ocre-ink: #92400e;
-  --color-ocre-soft: #f9eddf;
-  --color-on-ocre: #1b1204;
+  --color-paper: #faf9f7;
+  --color-encre: #16130f;
+  --color-ink2: #6b6055;
+  --color-ink3: #8a8078;
+  --color-line: #e7e2da;
+  --color-line2: #dcd5cc;
+  --color-accent: #ad4c16;
+  --color-accent-deep: #8a3d10;
+  --color-accent2: #e58a4a;
+  --color-accent-ink: #7a360e;
+  --color-accent-soft: #f4e4d8;
+  --color-on-accent: #ffffff;
   --color-surface: #ffffff;
-  --color-surface2: #f7f9fb;
-  --color-ok: #48bb78;
-  --color-success: #48bb78;
-  --color-success-ink: #166534;
-  --color-warning: #ed8936;
-  --color-warning-ink: #9a3412;
-  --color-error: #e53e3e;
-  --color-error-ink: #b91c1c;
-  --color-info: #3b82f6;
-  --color-info-ink: #1d4ed8;
+  --color-surface2: #f5f2ee;
+  --color-ok: #3f7d53;
+  --color-success: #3f7d53;
+  --color-success-ink: #2c5a3b;
+  --color-warning: #c0821f;
+  --color-warning-ink: #8a5a10;
+  --color-error: #b3452c;
+  --color-error-ink: #7e2e1b;
+  --color-info: #5a6b8c;
+  --color-info-ink: #3d4a63;
 
   /* Radius */
-  --radius-sm: 0.125rem;
-  --radius-base: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
+  --radius-sm: 0;
+  --radius-base: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-card: 0 4px 20px rgba(14, 19, 32, 0.12);
-  --shadow-hover: 0 8px 30px rgba(14, 19, 32, 0.1);
-  --shadow-glow-ocre: 0 0 20px rgba(242, 135, 13, 0.3);
+  --shadow-card: none;
+  --shadow-hover: none;
+  --shadow-glow-accent: none;
 
   /* Motion */
   --duration-cinematic: 700ms;
-  --duration-micro: 150ms;
-  --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-micro: 200ms;
+  --ease-out-expo: cubic-bezier(0.2, 0.7, 0.2, 1);
   --easing-cinematic: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -65,25 +65,25 @@
 @theme inline {
   --color-background: var(--color-paper);
   --color-foreground: var(--color-encre);
-  --color-primary: var(--color-ocre);
-  --color-primary-foreground: var(--color-on-ocre);
+  --color-primary: var(--color-accent);
+  --color-primary-foreground: var(--color-on-accent);
   --color-muted: var(--color-ink3);
   --color-muted-foreground: var(--color-ink2);
-  --color-accent: var(--color-ocre);
-  --color-accent-foreground: var(--color-on-ocre);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-on-accent);
   --color-destructive: var(--color-error);
   --color-destructive-foreground: var(--color-surface);
   --color-border: var(--color-line);
   --color-input: var(--color-line);
-  --color-ring: var(--color-ocre);
+  --color-ring: var(--color-accent);
 
   /* Component — Badge */
   --badge-bg-default: var(--color-surface2);
   --badge-fg-default: var(--color-ink2);
   --badge-border-default: var(--color-line);
-  --badge-bg-ocre: var(--color-ocre-soft);
-  --badge-fg-ocre: var(--color-ocre-ink);
-  --badge-border-ocre: transparent;
+  --badge-bg-accent: var(--color-accent-soft);
+  --badge-fg-accent: var(--color-accent-ink);
+  --badge-border-accent: transparent;
   --badge-bg-outline: transparent;
   --badge-fg-outline: var(--color-encre);
   --badge-border-outline: var(--color-line2);
@@ -105,20 +105,20 @@
   /* Component — Icon */
   --icon-color-encre: var(--color-encre);
   --icon-color-ink2: var(--color-ink2);
-  --icon-color-ocre: var(--color-ocre-ink);
+  --icon-color-accent: var(--color-accent-ink);
 
   /* Component — Checkbox */
   --checkbox-bg: var(--color-surface);
   --checkbox-border: var(--color-line2);
-  --checkbox-bg-checked: var(--color-ocre);
-  --checkbox-border-checked: var(--color-ocre);
-  --checkbox-fg-checked: var(--color-on-ocre);
+  --checkbox-bg-checked: var(--color-accent);
+  --checkbox-border-checked: var(--color-accent);
+  --checkbox-fg-checked: var(--color-on-accent);
 
   /* Component — Radio */
   --radio-bg: var(--color-surface);
   --radio-border: var(--color-line2);
-  --radio-border-checked: var(--color-ocre);
-  --radio-dot: var(--color-ocre);
+  --radio-border-checked: var(--color-accent);
+  --radio-dot: var(--color-accent);
 
   /* Component — Tooltip */
   --tooltip-bg: var(--color-encre);
@@ -149,7 +149,7 @@
   --select-content-bg: var(--color-surface);
   --select-content-border: var(--color-line);
   --select-item-fg: var(--color-encre);
-  --select-item-bg-highlighted: var(--color-ocre-soft);
+  --select-item-bg-highlighted: var(--color-accent-soft);
   --select-item-fg-highlighted: var(--color-encre);
 
   /* Component — Label */
@@ -160,20 +160,20 @@
   /* Component — Textarea (mirrors Input chrome) */
   --textarea-bg: var(--color-surface);
   --textarea-border: var(--color-line);
-  --textarea-border-focus: var(--color-ocre);
+  --textarea-border-focus: var(--color-accent);
   --textarea-border-error: var(--color-error);
   --textarea-fg: var(--color-encre);
   --textarea-placeholder: var(--color-ink3);
 
   /* Component — Switch */
   --switch-track: var(--color-line2);
-  --switch-track-checked: var(--color-ocre);
+  --switch-track-checked: var(--color-accent);
   --switch-thumb: var(--color-surface);
   --switch-border: var(--color-line2);
 
   /* Component — Spinner */
   --spinner-track: var(--color-line2);
-  --spinner-indicator: var(--color-ocre);
+  --spinner-indicator: var(--color-accent);
 
   /* Component — Avatar */
   --avatar-bg: var(--color-surface2);
@@ -185,9 +185,9 @@
   --form-field-error: var(--color-error-ink);
 
   /* Component — Link */
-  --link-fg: var(--color-ocre-ink);
-  --link-fg-hover: var(--color-ocre);
-  --link-underline: var(--color-ocre);
+  --link-fg: var(--color-accent-ink);
+  --link-fg-hover: var(--color-accent);
+  --link-underline: var(--color-accent);
 
   /* Component — Breadcrumb */
   --breadcrumb-fg: var(--color-ink2);
@@ -197,8 +197,8 @@
   /* Component — Pagination */
   --pagination-fg: var(--color-encre);
   --pagination-fg-muted: var(--color-ink3);
-  --pagination-bg-active: var(--color-ocre-soft);
-  --pagination-fg-active: var(--color-ocre-ink);
+  --pagination-bg-active: var(--color-accent-soft);
+  --pagination-fg-active: var(--color-accent-ink);
 
   /* Component — Skeleton */
   --skeleton-bg: var(--color-surface2);
@@ -206,7 +206,7 @@
 
   /* Component — Progress */
   --progress-track: var(--color-surface2);
-  --progress-indicator: var(--color-ocre);
+  --progress-indicator: var(--color-accent);
   --progress-border: var(--color-line);
 
   /* Component — Alert */
@@ -222,9 +222,9 @@
   --alert-bg-error: color-mix(in srgb, var(--color-error) 14%, var(--color-paper));
   --alert-fg-error: var(--color-error-ink);
   --alert-border-error: color-mix(in srgb, var(--color-error) 35%, var(--color-line));
-  --alert-bg-info: var(--color-ocre-soft);
-  --alert-fg-info: var(--color-ocre-ink);
-  --alert-border-info: color-mix(in srgb, var(--color-ocre) 35%, var(--color-line));
+  --alert-bg-info: var(--color-accent-soft);
+  --alert-fg-info: var(--color-accent-ink);
+  --alert-border-info: color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
 }
 
 @layer base {
@@ -263,7 +263,7 @@
   }
 
   ::selection {
-    background-color: var(--color-ocre-soft);
+    background-color: var(--color-accent-soft);
     color: var(--color-encre);
   }
 }

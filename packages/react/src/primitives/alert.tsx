@@ -55,7 +55,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
         ref={ref}
         role={assertive ? 'alert' : 'status'}
         className={cn(
-          'relative flex w-full gap-3 rounded-xl border px-4 py-3 text-sm',
+          'relative flex w-full gap-3 rounded-none border px-4 py-3 text-sm',
           toneStyles[tone],
           className
         )}
@@ -73,7 +73,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
             onClick={onDismiss}
             aria-label="Dismiss"
             className={cn(
-              'shrink-0 rounded-md px-1.5 text-xs opacity-70 transition-opacity',
+              'shrink-0 rounded-none px-1.5 text-xs opacity-70 transition-opacity',
               'hover:opacity-100',
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]'
             )}

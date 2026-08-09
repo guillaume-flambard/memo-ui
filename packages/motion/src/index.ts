@@ -59,7 +59,7 @@ export function gsapRiseIn(
 
 /**
  * GSAP sun animation
- * For ocre accents and CTAs
+ * For accent fills and CTAs
  */
 export function gsapSunIn(
   element: HTMLElement | HTMLElement[],

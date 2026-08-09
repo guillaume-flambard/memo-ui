@@ -1,14 +1,16 @@
 /**
  * memo-ui Typography Tokens
- * Inspired by largo-ai: Space Grotesk (display) + Geist (sans) + Geist Mono (mono)
+ * Based on the Memo Labs portfolio: one condensed grotesque (Oswald) for display
+ * and body, with a mono for kickers/meta. Uppercase is a CSS decision, not a
+ * content transform.
  */
 
 export const typography = {
   // Font families
   fontFamily: {
-    display: 'Space Grotesk, system-ui, sans-serif',
-    sans: 'Geist, system-ui, -apple-system, sans-serif',
-    mono: 'Geist Mono, ui-monospace, monospace',
+    display: 'Oswald, "Archivo Narrow", system-ui, sans-serif',
+    sans: 'Oswald, "Archivo Narrow", system-ui, sans-serif',
+    mono: '"Geist Mono", ui-monospace, monospace',
   },
 
   // Font sizes (clamp-based for fluidity)
@@ -26,33 +28,30 @@ export const typography = {
 
   // Font weights
   fontWeight: {
-    thin: '100',
     light: '300',
     normal: '400',
     medium: '500',
     semibold: '600',
     bold: '700',
-    extrabold: '800',
-    black: '900',
   },
 
   // Line heights
   lineHeight: {
-    tight: '1.25',
-    snug: '1.375',
-    normal: '1.5',
-    relaxed: '1.625',
+    tight: '1.1',
+    snug: '1.25',
+    normal: '1.4',
+    relaxed: '1.6',
     loose: '2',
   },
 
   // Letter spacing
   letterSpacing: {
-    tighter: '-0.05em',
-    tight: '-0.025em',
+    tighter: '-0.02em',
+    tight: '0em',
     normal: '0em',
-    wide: '0.025em',
-    wider: '0.05em',
-    widest: '0.1em', // For mono kickers
+    wide: '0.04em',
+    wider: '0.09em',
+    widest: '0.18em', // For mono kickers / eyebrows
   },
 } as const;
 

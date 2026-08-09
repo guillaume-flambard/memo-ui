@@ -11,7 +11,11 @@ Respond in French when chatting with Guillaume; keep code, JSDoc, and Storybook 
 | Done | Button, Input, Text, Icon, Badge, Divider, Card, Stack, Grid, Checkbox, Radio, Modal, Tabs, Select, Tooltip, Toast, Label, Textarea, Switch, Spinner, Avatar, FormField, Link, Breadcrumb, Pagination, Skeleton, Progress, Alert |
 | Next | Theme presets, brand assets, denser navigation patterns |
 
-Brand and tokens are already set (paper/ink + ocre, Space Grotesk/Geist, soft radius). Do **not** re-ask for brand or rebuild foundation tokens.
+Brand and tokens follow the **Memo Labs portfolio/lab design language** (adopted 2026-08-09): one
+condensed grotesque — Oswald — for display *and* body, flat surfaces (no border-radius, no
+box-shadow; structure via 1px `--line` hairlines), warm palette `#faf9f7` paper / `#16130f` encre /
+`#ad4c16` accent used sparingly. Tokens live in `packages/core/src/tokens/` (colors, typography,
+radius, shadows, motion). Do **not** re-ask for brand or rebuild foundation tokens.
 
 ## Multi-component builds
 

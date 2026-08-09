@@ -16,9 +16,9 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const sizeStyles = {
   text: {
-    sm: 'h-3 w-24 rounded-md',
-    md: 'h-4 w-40 rounded-md',
-    lg: 'h-5 w-56 rounded-md',
+    sm: 'h-3 w-24 rounded-none',
+    md: 'h-4 w-40 rounded-none',
+    lg: 'h-5 w-56 rounded-none',
   },
   circular: {
     sm: 'size-8 rounded-full',
@@ -26,9 +26,9 @@ const sizeStyles = {
     lg: 'size-14 rounded-full',
   },
   rectangular: {
-    sm: 'h-16 w-full rounded-xl',
-    md: 'h-24 w-full rounded-xl',
-    lg: 'h-40 w-full rounded-2xl',
+    sm: 'h-16 w-full rounded-none',
+    md: 'h-24 w-full rounded-none',
+    lg: 'h-40 w-full rounded-none',
   },
 } as const;
 

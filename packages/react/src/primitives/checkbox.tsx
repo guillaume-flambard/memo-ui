@@ -18,8 +18,8 @@ export interface CheckboxProps
 }
 
 const boxSize = {
-  sm: 'size-4 rounded-md',
-  md: 'size-5 rounded-lg',
+  sm: 'size-4 rounded-none',
+  md: 'size-5 rounded-none',
 } as const;
 
 const iconSize = {

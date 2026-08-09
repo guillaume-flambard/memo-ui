@@ -2,15 +2,15 @@
 
 /**
  * memo-ui Badge — compact status / meta label.
- * Ocre variant is scarce punctuation, not a default chrome color.
+ * Accent variant is scarce punctuation, not a default chrome color.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Color treatment. Use `ocre` sparingly. `@default default` */
-  variant?: 'default' | 'ocre' | 'outline' | 'success' | 'warning' | 'error';
+  /** Color treatment. Use `accent` sparingly. `@default default` */
+  variant?: 'default' | 'accent' | 'outline' | 'success' | 'warning' | 'error';
   /** Compact (`sm`) or default (`md`) height. `@default md` */
   size?: 'sm' | 'md';
 }
@@ -18,8 +18,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 const badgeVariants = {
   default:
     'bg-[var(--badge-bg-default)] text-[var(--badge-fg-default)] border-[var(--badge-border-default)]',
-  ocre:
-    'bg-[var(--badge-bg-ocre)] text-[var(--badge-fg-ocre)] border-[var(--badge-border-ocre)]',
+  accent:
+    'bg-[var(--badge-bg-accent)] text-[var(--badge-fg-accent)] border-[var(--badge-border-accent)]',
   outline:
     'bg-[var(--badge-bg-outline)] text-[var(--badge-fg-outline)] border-[var(--badge-border-outline)]',
   success:
@@ -43,7 +43,6 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
         ref={ref}
         className={cn(
           'inline-flex items-center justify-center gap-1 rounded-full border font-medium tracking-wide',
-          'transition-[opacity,transform] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
           badgeVariants[variant],
           badgeSizes[size],
           className

@@ -1,23 +1,23 @@
 "use client";
 
 /**
- * memo-ui Card — surface container with optional elevation.
- * Compose with CardHeader, CardTitle, CardDescription, CardContent, CardFooter.
+ * memo-ui Card — flat surface container. No radius, no shadow — structure via
+ * 1px hairlines. Compose with CardHeader, CardTitle, CardDescription,
+ * CardContent, CardFooter.
  */
 
 import React, { forwardRef } from 'react';
 import { cn } from '@memo-ui/utils';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Border / shadow treatment. `@default default` */
-  variant?: 'default' | 'outlined' | 'elevated';
+  /** Border treatment. `@default default` */
+  variant?: 'default' | 'outlined' | 'surface';
 }
 
 const cardVariants = {
-  default: 'border-[var(--color-line)] bg-[var(--color-surface)] shadow-none',
-  outlined: 'border-[var(--color-line2)] bg-[var(--color-surface)] shadow-none',
-  elevated:
-    'border-[var(--color-line)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]',
+  default: 'border-[var(--color-line)] bg-[var(--color-surface)]',
+  outlined: 'border-[var(--color-line2)] bg-[var(--color-surface)]',
+  surface: 'border-[var(--color-line)] bg-[var(--color-surface2)]',
 } as const;
 
 /** Bordered surface. Prefer for interactive groupings, not decorative chrome alone. */
@@ -27,9 +27,9 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          'overflow-hidden rounded-2xl border',
-          'transition-[transform,box-shadow] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
-          'hover:-translate-y-0.5 hover:shadow-[var(--shadow-hover)]',
+          'border',
+          'transition-colors duration-[var(--duration-normal)] ease-in-out',
+          'hover:bg-[var(--color-surface2)]',
           cardVariants[variant],
           className
         )}

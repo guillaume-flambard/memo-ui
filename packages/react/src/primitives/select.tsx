@@ -20,9 +20,9 @@ export const SelectTrigger = forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex h-11 w-full items-center justify-between gap-2 rounded-xl border bg-[var(--select-trigger-bg)] px-3.5 text-sm',
+      'inline-flex h-11 w-full items-center justify-between gap-2 rounded-none border bg-[var(--select-trigger-bg)] px-3.5 text-sm',
       'border-[var(--select-trigger-border)] text-[var(--select-trigger-fg)]',
-      'transition-[border-color,box-shadow] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
+      'transition-[border-color] duration-[var(--duration-micro)] ease-[var(--ease-out-expo)]',
       'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]',
       'disabled:cursor-not-allowed disabled:opacity-50',
       'data-[placeholder]:text-[var(--color-ink3)]',
@@ -47,8 +47,8 @@ export const SelectContent = forwardRef<
       ref={ref}
       position={position}
       className={cn(
-        'z-50 max-h-72 min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-xl border',
-        'border-[var(--select-content-border)] bg-[var(--select-content-bg)] shadow-[var(--shadow-card)]',
+        'z-50 max-h-72 min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-none border',
+        'border-[var(--select-content-border)] bg-[var(--select-content-bg)]',
         'data-[state=open]:animate-[fade-in_var(--duration-micro)_var(--ease-out-expo)]',
         className
       )}
@@ -67,7 +67,7 @@ export const SelectItem = forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-pointer select-none items-center rounded-lg px-3 py-2 text-sm outline-none',
+      'relative flex cursor-pointer select-none items-center rounded-none px-3 py-2 text-sm outline-none',
       'text-[var(--select-item-fg)]',
       'data-[highlighted]:bg-[var(--select-item-bg-highlighted)] data-[highlighted]:text-[var(--select-item-fg-highlighted)]',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',

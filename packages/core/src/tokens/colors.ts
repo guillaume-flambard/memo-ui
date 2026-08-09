@@ -1,42 +1,42 @@
 /**
  * memo-ui Color Tokens
- * Base: largo-ai heritage (paper + ink)
- * Accent: Alan Chester style (rare ocre as punctuation)
+ * Based on the Memo Labs portfolio / lab design language:
+ * warm paper + ink, a single terracotta accent used sparingly as punctuation.
  */
 
 export const colors = {
-  // Base colors (largo-ai heritage)
-  paper: '#FAFBFC', // Fond de page
-  encre: '#0E1320', // Texte principal + fonds "encre"
-  ink2: '#414B5E', // Texte secondaire
-  ink3: '#5C6578', // Tertiary / meta — AA on paper (~5.65:1)
+  // Base colors (portfolio heritage)
+  paper: '#FAF9F7', // Fond de page
+  encre: '#16130F', // Texte principal
+  ink2: '#6B6055', // Texte secondaire / muted
+  ink3: '#8A8078', // Tertiary / meta — AA on paper
 
-  // Line colors
-  line: '#E6E9EF',
-  line2: '#D6DBE4',
+  // Line colors (1px hairlines — structure instead of shadows)
+  line: '#E7E2DA',
+  line2: '#DCD5CC',
 
-  // Accent unique (Alan Chester style — rare punctuation)
-  ocre: '#F2870D', // Fill / pivot — scarce on purpose
-  ocreDeep: '#D9760A', // Hover / gradient foot
-  ocre2: '#FF6A2C', // Second gradient stop
-  ocreInk: '#92400E', // Ocre as text/icon on paper or soft wash (WCAG AA)
-  ocreSoft: '#F9EDDF', // Opaque wash (axe-friendly; ~12% ocre on paper)
-  onOcre: '#1B1204', // Text on solid ocre
+  // Accent unique (rare punctuation — portfolio `--accent`)
+  accent: '#AD4C16', // Fill / pivot
+  accentDeep: '#8A3D10', // Hover / gradient foot
+  accent2: '#E58A4A', // Second gradient stop
+  accentInk: '#7A360E', // Accent as text/icon on paper or soft wash (WCAG AA)
+  accentSoft: '#F4E4D8', // Opaque wash (axe-friendly; ~12% accent on paper)
+  onAccent: '#FFFFFF', // Text on solid accent
 
   // Surface colors
   surface: '#FFFFFF',
-  surface2: '#F7F9FB',
+  surface2: '#F5F2EE',
 
   // Semantic fills + AA ink on soft washes
-  ok: '#48BB78',
-  success: '#48BB78',
-  successInk: '#166534',
-  warning: '#ED8936',
-  warningInk: '#9A3412',
-  error: '#E53E3E',
-  errorInk: '#B91C1C',
-  info: '#3B82F6',
-  infoInk: '#1D4ED8',
+  ok: '#3F7D53',
+  success: '#3F7D53',
+  successInk: '#2C5A3B',
+  warning: '#C0821F',
+  warningInk: '#8A5A10',
+  error: '#B3452C',
+  errorInk: '#7E2E1B',
+  info: '#5A6B8C',
+  infoInk: '#3D4A63',
 } as const;
 
 export type Colors = typeof colors;
@@ -49,12 +49,12 @@ export const colorCssVars = {
   '--color-ink3': colors.ink3,
   '--color-line': colors.line,
   '--color-line2': colors.line2,
-  '--color-ocre': colors.ocre,
-  '--color-ocre-deep': colors.ocreDeep,
-  '--color-ocre2': colors.ocre2,
-  '--color-ocre-ink': colors.ocreInk,
-  '--color-ocre-soft': colors.ocreSoft,
-  '--color-on-ocre': colors.onOcre,
+  '--color-accent': colors.accent,
+  '--color-accent-deep': colors.accentDeep,
+  '--color-accent2': colors.accent2,
+  '--color-accent-ink': colors.accentInk,
+  '--color-accent-soft': colors.accentSoft,
+  '--color-on-accent': colors.onAccent,
   '--color-surface': colors.surface,
   '--color-surface2': colors.surface2,
   '--color-ok': colors.ok,

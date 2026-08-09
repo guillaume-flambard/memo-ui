@@ -1,17 +1,18 @@
 /**
  * memo-ui Motion Tokens
- * GSAP cinematic + Motion micro-interactions (Linear style timing)
+ * Based on the Memo Labs portfolio: motion is slow and small — 0.2s to 0.3s
+ * ease-in-out on colour/border. No lift, no scale.
  */
 
 export const motionTokens = {
-  // Durations (Linear style: 120-180ms for micro, 700ms for cinematic)
+  // Durations (portfolio: 200-300ms; micro interactions stay fast)
   duration: {
     instant: '0ms',
-    fastest: '50ms',
+    fastest: '100ms',
     fast: '150ms',
-    normal: '300ms',
-    slow: '500ms',
-    slower: '700ms',
+    normal: '200ms',
+    slow: '300ms',
+    slower: '500ms',
     slowest: '1000ms',
   },
 
@@ -21,7 +22,6 @@ export const motionTokens = {
     in: 'ease-in',
     out: 'ease-out',
     inOut: 'ease-in-out',
-    // Custom cinematic easing (largo-ai inspired)
     cinematic: 'cubic-bezier(0.2, 0.7, 0.2, 1)',
     bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     elastic: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
